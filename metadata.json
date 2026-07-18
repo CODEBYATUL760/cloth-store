@@ -1,0 +1,6 @@
+{
+  "name": "MBA Kapdewala",
+  "description": "A high-quality, friendly, and affordable local Indian clothing store for everyday fashion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
