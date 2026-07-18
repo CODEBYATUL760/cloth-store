@@ -19,7 +19,7 @@ export function AboutPage() {
       className="max-w-4xl mx-auto py-12 px-4 text-white"
     >
       <div className="text-center mb-12">
-        <span className="text-amber-500 font-sans text-xs tracking-widest uppercase block mb-2">Our Journey (हमारी यात्रा)</span>
+        <span className="text-amber-500 font-sans text-xs tracking-widest uppercase block mb-2">Our Journey</span>
         <h1 className="text-3xl sm:text-5xl font-sans tracking-tight font-black mb-6">MBA KAPDEWALA</h1>
         <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
           Bringing high-quality, elegant clothing to hard-working people since 2018. Comfortable, authentic styles at honest and affordable pricing.
@@ -36,7 +36,7 @@ export function AboutPage() {
           />
         </div>
         <div className="space-y-4">
-          <h2 className="text-xl font-sans text-amber-500 tracking-wide font-black">Our Principles & Materials (हमारे विचार और कपड़े)</h2>
+          <h2 className="text-xl font-sans text-amber-500 tracking-wide font-black">Our Principles & Materials</h2>
           <p className="text-xs text-zinc-300 leading-relaxed">
             At MBA Kapdewala, we believe garments should be simple, highly durable, and very comfortable. Every fabric in our catalog is selected with care—from premium long-staple cotton to fine soft woolen blends.
           </p>
@@ -65,16 +65,16 @@ export function AboutPage() {
 export function FAQPage() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
   const faqs = [
-    { q: "मेरा ऑर्डर कितने दिनों में आएगा? (How fast will my order arrive?)", a: "हम बहुत तेजी से काम करते हैं! आपका ऑर्डर 3 से 5 दिनों में सुरक्षित तरीके से आपके घर पहुंचा दिया जाएगा। सभी कपड़े बढ़िया पर्यावरण-अनुकूल पैकेजिंग में भेजे जाते हैं।" },
-    { q: "क्या मैं कपड़े वापस या बदल सकता हूँ? (What is your return policy?)", a: "हाँ, बिल्कुल! हम 15 दिनों की आसान वापसी और बदलने की सुविधा देते हैं। बस सुनिश्चित करें कि कपड़ों का टैग न निकाला गया हो।" },
-    { q: "क्या मुझे कपड़े चुनने में मदद मिल सकती है? (Can I get styling suggestions?)", a: "हाँ! नीचे दिए गए 'AI Guide' बटन पर क्लिक करके आप हमारे कपड़ा सहायक से बात कर सकते हैं। वह आपको सही साइज और बेहतरीन मैच चुनने में मदद करेगा।" },
-    { q: "ये कपड़े कहाँ बनाए जाते हैं? (Where are the products made?)", a: "हमारे सभी उत्पाद गर्व के साथ भारत में बनाए जाते हैं। हम बेहतरीन भारतीय कारीगरों और धागों का उपयोग करते हैं जिससे देश के हुनर को बढ़ावा मिले।" }
+    { q: "How fast will my order arrive?", a: "We work incredibly fast! Your order will be securely delivered to your doorstep within 3 to 5 business days. All garments are shipped in eco-friendly protective packaging." },
+    { q: "What is your return policy?", a: "We offer an easy 15-day return and exchange window. Simply ensure that the original product tags are kept intact." },
+    { q: "Can I get styling suggestions?", a: "Yes, absolutely! Click the 'AI Guide' button at the bottom of your screen to speak to our personal virtual assistant. Our assistant will help you find the perfect size and coordinating styles." },
+    { q: "Where are the products made?", a: "All our products are proudly made in India. We collaborate with master regional weavers and source premium materials to support Indian heritage craftsmanship." }
   ];
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 text-white">
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-sans tracking-tight font-black mb-2">Frequently Asked Questions (आपके सवाल-जवाब)</h1>
+        <h1 className="text-3xl font-sans tracking-tight font-black mb-2">Frequently Asked Questions</h1>
         <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Quick Help Center</p>
       </div>
 
@@ -118,7 +118,7 @@ export function ContactPage() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 text-white">
       <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl font-sans font-black tracking-tight mb-2">Contact Us (हमसे संपर्क करें)</h1>
+        <h1 className="text-3xl sm:text-4xl font-sans font-black tracking-tight mb-2">Contact Us</h1>
         <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Reach out to MBA Kapdewala</p>
       </div>
 
@@ -126,7 +126,7 @@ export function ContactPage() {
         {/* Info Column */}
         <div className="space-y-6">
           <div className="bg-zinc-950 border border-zinc-900 p-6 rounded-2xl space-y-4">
-            <h3 className="font-sans font-bold text-base text-amber-500">Our Head Office (मुख्य कार्यालय)</h3>
+            <h3 className="font-sans font-bold text-base text-amber-500">Our Head Office</h3>
             
             <div className="flex items-start gap-3 text-xs text-zinc-300">
               <MapPin size={16} className="text-zinc-500 flex-shrink-0 mt-0.5" />
@@ -374,28 +374,28 @@ export function LookbookPage() {
 export function LegalPoliciesPage({ docType }: { docType: "privacy" | "terms" | "return" | "shipping" }) {
   const docs = {
     privacy: {
-      title: "Privacy Policy (गोपनीयता नीति)",
-      text: `आपकी गोपनीयता हमारे लिए सबसे महत्वपूर्ण है। MBA Kapdewala में आपकी जानकारी पूरी तरह सुरक्षित है।
+      title: "Privacy Policy",
+      text: `Your privacy is our utmost priority. At MBA Kapdewala, your information is completely safe and secure.
       
-      हम सिर्फ आपकी डिलीवरी और संपर्क के लिए आपका नाम, पता और ईमेल सुरक्षित रखते हैं। हम आपकी जानकारी कभी किसी के साथ साझा या बेचते नहीं हैं। आप जब चाहें अपना अकाउंट बंद कर सकते हैं।`
+      We only store your name, address, and email for the purpose of shipping and customer communication. We never sell or share your data with third parties. You can request to close your account and delete your data at any time.`
     },
     terms: {
-      title: "Terms & Conditions (नियम और शर्तें)",
-      text: `यह एक डेमो वेबसाइट है जिसे प्रदर्शन (Portfolio) के उद्देश्य से बनाया गया है।
+      title: "Terms & Conditions",
+      text: `This is a demo website created purely for portfolio presentation and demonstration purposes.
       
-      इस वेबसाइट पर उपलब्ध नाम 'MBA Kapdewala', तस्वीरें, डिस्काउंट कूपन और सभी उत्पाद केवल डेमो दिखाने के लिए हैं। कोई भी असली पेमेंट या लेन-देन यहाँ नहीं होता है।`
+      The name 'MBA Kapdewala', images, discount coupons, products, and prices displayed here are strictly for simulation purposes. No real monetary transactions or shipments occur on this platform.`
     },
     return: {
-      title: "Returns & Exchanges (आसान वापसी नीति)",
-      text: `हम अपने ग्राहकों के भरोसे का सम्मान करते हैं। इसलिए हम 15 दिनों की आसान वापसी और एक्सचेंज की सुविधा देते हैं।
+      title: "Returns & Exchanges",
+      text: `We respect the trust our customers place in us. Therefore, we offer a seamless 15-day return and exchange policy.
       
-      वापसी के लिए सुनिश्चित करें कि कपड़े पहने न गए हों, धोए न गए हों और उनका ओरिजिनल टैग सुरक्षित हो। आप अपने प्रोफाइल से सीधे वापसी का अनुरोध कर सकते हैं और हमारा पार्टनर आपके घर आकर पार्सल पिकअप कर लेगा।`
+      To be eligible for a return, please ensure that the garments are unworn, unwashed, and retain their original price tags. You can initiate a return request directly from your profile dashboard, and our shipping partner will collect the parcel from your home.`
     },
     shipping: {
-      title: "Shipping Policy (डिलीवरी नीति)",
-      text: `हम भारत के कोने-कोने में बहुत तेजी से डिलीवरी करते हैं।
+      title: "Shipping Policy",
+      text: `We deliver swiftly to all corners of India.
       
-      ₹1,499 से ऊपर के सभी ऑर्डर्स पर डिलीवरी बिल्कुल फ्री है! उससे कम के ऑर्डर्स पर केवल ₹99 डिलीवरी चार्ज लगता है। आपके कपड़े सुरक्षित, वाटरप्रूफ इको-फ्रेंडली पैकेजिंग में भेजे जाते हैं और 3-5 दिनों में आपके पास पहुँच जाते हैं।`
+      Shipping is completely free for all orders above ₹1,499! For orders below this threshold, a flat delivery fee of ₹99 is applicable. Your clothes are shipped in secure, waterproof, and eco-friendly packaging, reaching your doorstep within 3-5 business days.`
     }
   };
 
@@ -467,7 +467,7 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
     <div className="max-w-2xl mx-auto py-12 px-4 text-white">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-sans tracking-tight font-black mb-1 flex items-center justify-center gap-2">
-          Track Delivery Status (ऑर्डर ट्रैकिंग)
+          Track Delivery Status
         </h1>
         <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Live Shipment Transit Timeline</p>
       </div>

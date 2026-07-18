@@ -1,4 +1,5 @@
 import { Home, Compass, Heart, ShoppingCart, Search, Bot } from "lucide-react";
+import { STORE_CONFIG } from "../config";
 
 interface BottomNavProps {
   currentTab: string;
@@ -72,7 +73,7 @@ export default function BottomNav({
 
       {/* Floating WhatsApp Quick Link */}
       <a
-        href="https://wa.me/1234567890?text=Hello%20MBA%20Kapdewala,%20I'm%20interested%20in%20your%20clothing%20collection!"
+        href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=Hello%20${encodeURIComponent(STORE_CONFIG.storeName)},%20I'm%20interested%20in%20your%20clothing%20collection!`}
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-20 md:bottom-6 right-6 bg-emerald-500 hover:bg-emerald-400 text-white p-3.5 rounded-full shadow-2xl hover:scale-115 transition-transform duration-300 z-40 border border-emerald-400/20 flex items-center justify-center group"

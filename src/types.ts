@@ -11,8 +11,8 @@ export interface Product {
   id: string;
   sku: string;
   name: string;
-  category: "Men" | "Women" | "Kids" | "Footwear" | "Accessories";
-  subCategory: "Casual Wear" | "Formal Wear" | "Sportswear" | "Winter Wear" | "Ethnic Wear" | "Watches" | "Bags" | "Boots" | "Sneakers";
+  category: string;
+  subCategory: string;
   brand: string;
   price: number;
   mrp: number; // Maximum Retail Price (for discounts)
@@ -30,6 +30,13 @@ export interface Product {
   rating: number;
   reviews: Review[];
   tags: string[];
+  isFestival?: boolean;
+  isWedding?: boolean;
+  isOfficeWear?: boolean;
+  isBestSeller?: boolean;
+  isTrending?: boolean;
+  isNewArrival?: boolean;
+  isSeasonCollection?: boolean;
 }
 
 export interface CartItem {

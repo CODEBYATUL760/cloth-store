@@ -36,7 +36,7 @@ export default function AssistantDrawer({
       setMessages([
         {
           role: "assistant",
-          content: "नमस्ते! Welcome to **MBA Kapdewala**. I am your personal AI Kapda Guide (कपड़ा सहायक). I can help you find beautiful clothes, select the right sizes, view active discount offers, or suggest trending styles. How can I help you today?"
+          content: "Welcome to **MBA Kapdewala**. I am your personal AI Clothing Guide. I can help you find beautiful clothes, select the right sizes, view active discount offers, or suggest trending styles. How can I help you today?"
         }
       ]);
     }

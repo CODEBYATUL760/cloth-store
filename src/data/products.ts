@@ -1,184 +1,382 @@
 import { Product, Review } from "../types";
 
-// Premium Unsplash fashion images, optimized and categorized
+// Premium Unsplash fashion images, optimized for a modern premium Indian menswear clothing showroom
 const IMAGES = {
-  Men: {
-    casual: [
-      "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?auto=format&fit=crop&q=80&w=600"
-    ],
-    formal: [
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&q=80&w=600"
-    ],
-    winter: [
-      "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&q=80&w=600"
-    ],
-    ethnic: [
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?auto=format&fit=crop&q=80&w=600"
-    ],
-    sport: [
-      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  Women: {
-    casual: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600"
-    ],
-    formal: [
-      "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600"
-    ],
-    winter: [
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=600"
-    ],
-    ethnic: [
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1583391265517-35bbadd01209?auto=format&fit=crop&q=80&w=600"
-    ],
-    sport: [
-      "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  Kids: {
-    casual: [
-      "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  Footwear: {
-    boots: [
-      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&q=80&w=600"
-    ],
-    sneakers: [
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=600"
-    ]
-  },
-  Accessories: {
-    bags: [
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=600"
-    ],
-    watches: [
-      "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&q=80&w=600"
-    ]
-  }
+  kurta: [
+    "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1609357518652-6cf0416f0cbe?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1615243450985-3876d9aff4db?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=600"
+  ],
+  sherwani: [
+    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1615243450985-3876d9aff4db?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=600"
+  ],
+  nehru: [
+    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1615243450985-3876d9aff4db?auto=format&fit=crop&q=80&w=600"
+  ],
+  suits: [
+    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1543132220-4bf3de6e10ae?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=600"
+  ],
+  shirts: [
+    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1588359348347-9bc6cbaa689e?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&q=80&w=600"
+  ],
+  trousers: [
+    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&q=80&w=600"
+  ],
+  accessories: [
+    "https://images.unsplash.com/photo-1624222247344-550fb8ec5519?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=600",
+    "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&q=80&w=600"
+  ]
 };
 
 const BASE_REVIEWS: Review[] = [
-  { id: "r-1", userName: "Marcus Vance", rating: 5, date: "2026-05-14", comment: "Outstanding premium fit. The fabric feels exactly like high-end Italian cashmere.", verified: true },
-  { id: "r-2", userName: "Sophia Sterling", rating: 4, date: "2026-06-02", comment: "Truly luxurious feel. The cuts are sharp and flattering. Sizing runs slightly large, check size guide.", verified: true },
-  { id: "r-3", userName: "Elena Rostova", rating: 5, date: "2026-06-25", comment: "An absolute masterpiece. Fast delivery and the gold accented packaging represents standard high fashion.", verified: true },
-  { id: "r-4", userName: "James C.", rating: 5, date: "2026-07-01", comment: "Comfortable and beautiful. Will purchase again.", verified: true }
+  { id: "r-1", userName: "Amit Sharma (Bhopal)", rating: 5, date: "2026-06-14", comment: "The clothing material is absolutely amazing. The fitting is also perfect. The quality is just as excellent as their MP Nagar showroom.", verified: true },
+  { id: "r-2", userName: "Rajesh Indore", rating: 5, date: "2026-06-18", comment: "Perfect groom look. The Banarasi silk material feels premium and rich. Totally worth the money.", verified: true },
+  { id: "r-3", userName: "Vikram Bundela", rating: 4, date: "2026-07-01", comment: "Very good fit. Quick delivery in Indore within 2 days. The color was slightly brighter than photo but quality is premium.", verified: true },
+  { id: "r-4", userName: "Deepak Patidar", rating: 5, date: "2026-07-10", comment: "Bought a sherwani for my wedding and everyone praised it highly. MBA Mens Wear collections are always the best.", verified: true }
 ];
 
-// Curated list of distinct high-fashion concepts to generate 150 items
+// Fictional base catalog of premium Indian clothing items
 const productBases = [
-  // MEN
-  { name: "Premium Velvet Tuxedo", basePrice: 249, category: "Men", subCategory: "Formal Wear" as const, images: IMAGES.Men.formal, fabric: "Velvet Silk Blend", washCare: "Dry Clean Only", features: ["Satin peak lapels", "Single button fastening", "Double vented back", "Internal pocket lining"] },
-  { name: "Classic Merino Wool Sweater", basePrice: 129, category: "Men", subCategory: "Winter Wear" as const, images: IMAGES.Men.winter, fabric: "100% Merino Wool", washCare: "Hand Wash Cold", features: ["Ribbed crew neckline", "Moisture wicking fibers", "Extremely breathable warmth"] },
-  { name: "Sartorial Silk Blend Shirt", basePrice: 95, category: "Men", subCategory: "Formal Wear" as const, images: IMAGES.Men.formal, fabric: "60% Mulberry Silk, 40% Fine Cotton", washCare: "Gentle Hand Wash or Dry Clean", features: ["Spread collar", "Mother of Pearl buttons", "Mitred French cuffs", "Tailored premium fit"] },
-  { name: "Urban Comfort Chino Pants", basePrice: 85, category: "Men", subCategory: "Casual Wear" as const, images: IMAGES.Men.casual, fabric: "Stretch Cotton Twill", washCare: "Machine Wash Warm", features: ["Slim straight leg profile", "Four-pocket styling", "Premium YKK zip fly", "Super soft combed cotton"] },
-  { name: "Active Tech Elite Joggers", basePrice: 79, category: "Men", subCategory: "Sportswear" as const, images: IMAGES.Men.sport, fabric: "Recycled Polyester Spandex", washCare: "Machine Wash Cold", features: ["Moisture-wicking panels", "Hidden secure zip pockets", "Adjustable drawcord waist", "Lightweight four-way stretch"] },
-  { name: "Heritage Linen Leisure Blazer", basePrice: 175, category: "Men", subCategory: "Casual Wear" as const, images: IMAGES.Men.casual, fabric: "100% Organic Irish Linen", washCare: "Dry Clean Preferred", features: ["Unstructured shoulders", "Patch pockets", "Double vented back", "Contrast interior stitching"] },
-  { name: "Royal Sherwani Kurta Set", basePrice: 220, category: "Men", subCategory: "Ethnic Wear" as const, images: IMAGES.Men.ethnic, fabric: "Banarasi Art Silk", washCare: "Dry Clean Only", features: ["Mandarin neck collar", "Handcrafted thread embroidery", "Includes matching churidar pants", "Side slits for ease of movement"] },
+  // Kurta Pyjama (Festival & Wedding Collection)
+  {
+    name: "Royal Banarasi Silk Kurta Pyjama",
+    category: "Kurta Pyjama",
+    subCategory: "Festival Special",
+    basePrice: 1599,
+    images: IMAGES.kurta,
+    fabric: "Banarasi Silk Blend",
+    washCare: "Dry Clean Only",
+    features: ["Elegant Mandarin Collar", "Intricate zari neck embroidery", "Comes with premium cotton pyjama", "Perfect for festival and sangeet night"],
+    tags: ["ethnic", "festival", "kurta", "wedding", "silk"]
+  },
+  {
+    name: "Classic Lucknowi Chikankari Kurta",
+    category: "Kurta Pyjama",
+    subCategory: "Festival Special",
+    basePrice: 1299,
+    images: IMAGES.kurta,
+    fabric: "100% Pure Georgette Cotton",
+    washCare: "Gentle Hand Wash or Dry Clean",
+    features: ["Handcrafted Lucknowi work", "Soft interior cotton lining", "Comfortable relaxed fit", "Best paired with churidar or denim"],
+    tags: ["ethnic", "festival", "lucknowi", "cotton", "casual"]
+  },
+  {
+    name: "Premium Khadi Cotton Comfort Kurta",
+    category: "Kurta Pyjama",
+    subCategory: "Daily Wear",
+    basePrice: 899,
+    images: IMAGES.kurta,
+    fabric: "100% Handloom Organic Khadi Cotton",
+    washCare: "Machine Wash Cold, Shade Dry",
+    features: ["Highly breathable fabric", "Wooden coconut buttons", "Contemporary slim fit design", "Perfect for summer office wear"],
+    tags: ["ethnic", "khadi", "cotton", "office", "comfortable"]
+  },
+  {
+    name: "Jacquard Silk Pathani Suit",
+    category: "Kurta Pyjama",
+    subCategory: "Festival Special",
+    basePrice: 1899,
+    images: IMAGES.kurta,
+    fabric: "Jacquard Art Silk",
+    washCare: "Dry Clean Recommended",
+    features: ["Stylish pathani collar", "Front pocket details", "Comes with free-flowing salwar pants", "Rich textured fabric pattern"],
+    tags: ["pathani", "ethnic", "festival", "jacquard"]
+  },
 
-  // WOMEN
-  { name: "Silk Satin Slip Gown", basePrice: 189, category: "Women", subCategory: "Formal Wear" as const, images: IMAGES.Women.formal, fabric: "100% Mulberry Silk", washCare: "Dry Clean Only", features: ["Cowled fluid neckline", "Adjustable crossback thin straps", "Elegant side slit accent", "Beautiful floor-sweeping drape"] },
-  { name: "Cashmere Trench Coat", basePrice: 349, category: "Women", subCategory: "Winter Wear" as const, images: IMAGES.Women.winter, fabric: "85% Cashmere, 15% Virgin Wool", washCare: "Dry Clean Only", features: ["Double-breasted front profile", "Removable tie-waist sash", "Signature buttoned epaulets", "Rich satin lining"] },
-  { name: "Signature Linen Day Dress", basePrice: 110, category: "Women", subCategory: "Casual Wear" as const, images: IMAGES.Women.casual, fabric: "100% French Linen", washCare: "Machine Wash Cold, Hang Dry", features: ["A-line tiered flowy skirt", "Elasticated square neck", "Functional deep side pockets", "Breathable natural fabric"] },
-  { name: "Vegan Leather Biker Jacket", basePrice: 165, category: "Women", subCategory: "Casual Wear" as const, images: IMAGES.Women.casual, fabric: "Heavyweight Vegan PU Leather", washCare: "Wipe Clean with Damp Cloth", features: ["Asymmetrical front zip", "Silver-toned heavy hardware", "Zippered sleeve cuffs", "Removable buckled waist belt"] },
-  { name: "Zen Seamless Yoga Set", basePrice: 89, category: "Women", subCategory: "Sportswear" as const, images: IMAGES.Women.sport, fabric: "Nylon Lycra Knit", washCare: "Machine Wash Cold", features: ["High-rise compression leggings", "Matching scoop sports bra", "Squat-proof thick construction", "Anti-odor treatment"] },
-  { name: "Anarkali Embroidered Kurti Set", basePrice: 195, category: "Women", subCategory: "Ethnic Wear" as const, images: IMAGES.Women.ethnic, fabric: "Georgette with Cotton Lining", washCare: "Dry Clean Recommended", features: ["Heavy zari work detailing", "Flared cascading style", "Includes designer floral dupatta", "Concealed back zipper"] },
-  { name: "Luxe Structured Silk Jumpsuit", basePrice: 179, category: "Women", subCategory: "Formal Wear" as const, images: IMAGES.Women.formal, fabric: "Dupioni Silk Blend", washCare: "Dry Clean Only", features: ["Wide-leg dramatic silhouette", "Off-the-shoulder elegant drape", "Bespoke self-tie waistband", "Fully lined bodice"] },
+  // Sherwani & Indo-Western (Wedding Collection)
+  {
+    name: "Groom's Special Maharaja Sherwani",
+    category: "Sherwani & Indo-Western",
+    subCategory: "Groom's Sherwani",
+    basePrice: 7499,
+    images: IMAGES.sherwani,
+    fabric: "Raw Silk with Velvet Patches",
+    washCare: "Dry Clean Only",
+    features: ["Handcrafted heavy zardozi work", "Royal velvet borders", "Includes matching maroon safa fabric and dupatta", "Tailored fit for grooms"],
+    tags: ["wedding", "groom", "sherwani", "royal", "heavy"]
+  },
+  {
+    name: "Modern Indo-Western Achkan Suit",
+    category: "Sherwani & Indo-Western",
+    subCategory: "Indo-Western",
+    basePrice: 4999,
+    images: IMAGES.sherwani,
+    fabric: "Premium Jute Silk Blend",
+    washCare: "Dry Clean Only",
+    features: ["Asymmetrical modern button cut", "Complementary designer pocket square", "Pairs excellently with slim trousers", "Excellent for reception and cocktails"],
+    tags: ["wedding", "indo-western", "achkan", "modern", "premium"]
+  },
+  {
+    name: "Velvet Royal Bandhgala Jodhpuri Suit",
+    category: "Sherwani & Indo-Western",
+    subCategory: "Premium Achkan",
+    basePrice: 5499,
+    images: IMAGES.sherwani,
+    fabric: "Micro-Velvet Premium",
+    washCare: "Dry Clean Only",
+    features: ["Classic closed-neck bandhgala", "Silver embossed luxury buttons", "Satin inner lining for premium feel", "Perfect luxury wedding attire"],
+    tags: ["wedding", "bandhgala", "jodhpuri", "velvet", "royal"]
+  },
 
-  // KIDS
-  { name: "Kids Organic Cotton Overalls", basePrice: 45, category: "Kids", subCategory: "Casual Wear" as const, images: IMAGES.Kids.casual, fabric: "100% Organic Combed Cotton", washCare: "Machine Wash Warm", features: ["Easy button snap closures", "Double knee reinforcements", "Adorable chest kangaroo pocket"] },
-  { name: "Kids Woolen Hooded Cardigan", basePrice: 55, category: "Kids", subCategory: "Winter Wear" as const, images: IMAGES.Kids.casual, fabric: "Hypoallergenic Merino Yarn", washCare: "Hand Wash Cold", features: ["Cute bear-ear hood trim", "Wooden toggle buttons", "Thick ribbed insulating knit"] },
-  { name: "Kids Active Play Joggers", basePrice: 35, category: "Kids", subCategory: "Sportswear" as const, images: IMAGES.Kids.casual, fabric: "Cotton Poly Fleece", washCare: "Machine Wash Cold", features: ["Stretchy rib knit waistband", "Deep side pockets for toys", "Fade-resistant color dyes"] },
+  // Nehru Jackets & Koti (Festival & Wedding Collection)
+  {
+    name: "Premium Silk Nehru Jacket",
+    category: "Nehru Jackets & Koti",
+    subCategory: "Silk Nehru Jacket",
+    basePrice: 1199,
+    images: IMAGES.nehru,
+    fabric: "Banarasi Art Silk",
+    washCare: "Dry Clean Only",
+    features: ["Elegant woven flower pattern", "Sleek pocket detailing", "Branded metallic buttons", "Pairs beautifully with any plain kurta"],
+    tags: ["nehru jacket", "ethnic", "koti", "festival", "wedding"]
+  },
+  {
+    name: "Khadi Modi Jacket",
+    category: "Nehru Jackets & Koti",
+    subCategory: "Modi Jacket",
+    basePrice: 999,
+    images: IMAGES.nehru,
+    fabric: "Pure Handwoven Khadi",
+    washCare: "Gentle Hand Wash",
+    features: ["Classic Modi collar shape", "Matte wooden button elements", "Three functional outer pockets", "Great for formal and social meets"],
+    tags: ["modi jacket", "khadi", "office", "formal", "ethnic"]
+  },
+  {
+    name: "Designer Floral Print Koti",
+    category: "Nehru Jackets & Koti",
+    subCategory: "Designer Koti",
+    basePrice: 1499,
+    images: IMAGES.nehru,
+    fabric: "Soft Linen Silk",
+    washCare: "Dry Clean Recommended",
+    features: ["HD digital floral print design", "Extremely lightweight and breathable", "Contrast color inside lining", "Perfect modern festival accessory"],
+    tags: ["koti", "floral", "festival", "modern", "casual"]
+  },
 
-  // FOOTWEAR
-  { name: "Monolith Leather Chelsea Boots", basePrice: 180, category: "Footwear", subCategory: "Boots" as const, images: IMAGES.Footwear.boots, fabric: "Full Grain Box Calf Leather", washCare: "Buff with Premium Leather Polish", features: ["Elasticated side gussets", "Heavy duty lugged rubber sole", "Signature grosgrain pull tabs", "Soft calfskin leather insole"] },
-  { name: "Classic Minimalist Sneakers", basePrice: 135, category: "Footwear", subCategory: "Sneakers" as const, images: IMAGES.Footwear.sneakers, fabric: "Nappa Leather", washCare: "Wipe with Sneaker Cleanser", features: ["Monochromatic stitching", "Margom durable rubber sole", "Ultra-comfy memory foam pad", "Premium cotton wax laces"] },
-  { name: "Luxe Metallic Evening Heels", basePrice: 160, category: "Footwear", subCategory: "Boots" as const, images: IMAGES.Footwear.boots, fabric: "Satin with Crystal Accent", washCare: "Spot Clean only", features: ["Stiletto high heel silhouette", "Adjustable buckled ankle strap", "Cushioned orthopedic arch"] },
+  // Suits & Blazers (Wedding & Office Wear)
+  {
+    name: "Italian Wool Italian-Cut Suit",
+    category: "Suits & Blazers",
+    subCategory: "Designer Suit",
+    basePrice: 5999,
+    images: IMAGES.suits,
+    fabric: "80% Italian Wool, 20% Polyester",
+    washCare: "Dry Clean Only",
+    features: ["Slim notch lapel design", "Double vent backend", "Comes with trouser and blazer coat", "Incredibly sharp corporate or wedding look"],
+    tags: ["suit", "formal", "office", "wedding", "wool"]
+  },
+  {
+    name: "Premium Club Velvet Blazer",
+    category: "Suits & Blazers",
+    subCategory: "Formal Blazer",
+    basePrice: 2999,
+    images: IMAGES.suits,
+    fabric: "Ultra Soft Premium Velvet",
+    washCare: "Dry Clean Only",
+    features: ["Satin shawl collar lapel", "Single button designer closure", "Double inner security pockets", "Perfect fit for party wear"],
+    tags: ["blazer", "velvet", "partywear", "wedding", "modern"]
+  },
+  {
+    name: "Linen Summer Breeze Blazer",
+    category: "Suits & Blazers",
+    subCategory: "Formal Blazer",
+    basePrice: 2499,
+    images: IMAGES.suits,
+    fabric: "100% Organic Pure Linen",
+    washCare: "Dry Clean Preferred",
+    features: ["Unstructured casual fit shoulders", "Lightweight half-liner", "Breathable organic feel", "Perfect smart casual look"],
+    tags: ["blazer", "linen", "casual", "summer", "office"]
+  },
 
-  // ACCESSORIES
-  { name: "Vogue Chronograph Watch", basePrice: 299, category: "Accessories", subCategory: "Watches" as const, images: IMAGES.Accessories.watches, fabric: "316L Stainless Steel", washCare: "Wipe Clean with Soft Cloth", features: ["Japanese Quartz Movement", "Scratch-resistant Sapphire crystal", "Water resistant up to 50 meters", "Genuine calfskin wristband"] },
-  { name: "Italian Saffiano Leather Tote", basePrice: 195, category: "Accessories", subCategory: "Bags" as const, images: IMAGES.Accessories.bags, fabric: "Genuine Saffiano Leather", washCare: "Apply Leather Guard Cream", features: ["Gold-plated metal feet protection", "Zippered secure central divider", "Premium branded dust cover", "Elegant structured minimalist shape"] },
-  { name: "Bespoke Polarized Sunglasses", basePrice: 85, category: "Accessories", subCategory: "Watches" as const, images: IMAGES.Accessories.watches, fabric: "Handmade Acetate / Metal", washCare: "Clean with Microfiber Pouch", features: ["100% UVA/UVB complete blocking", "Heavy duty metal hinges", "Signature gold logo detailing"] }
+  // Shirts & T-shirts (Office Wear & Daily Premium)
+  {
+    name: "Premium Egyptian Giza Cotton Shirt",
+    category: "Shirts & T-shirts",
+    subCategory: "Formal Shirts",
+    basePrice: 999,
+    images: IMAGES.shirts,
+    fabric: "100% Egyptian Giza Cotton",
+    washCare: "Machine Wash Warm, Iron on High",
+    features: ["Superfine 120s thread count", "Crisp semi-cutaway collar", "Lustrous white look", "Ideal for daily high-profile office meetings"],
+    tags: ["shirt", "formal", "giza", "cotton", "office"]
+  },
+  {
+    name: "Pure Linen Casual Button-Down",
+    category: "Shirts & T-shirts",
+    subCategory: "Formal Shirts",
+    basePrice: 1199,
+    images: IMAGES.shirts,
+    fabric: "100% French Linen Yarn",
+    washCare: "Machine Wash Cold, Hang Dry",
+    features: ["Breathable lightweight texture", "Button-down collar styling", "Slim fit curved hem", "Dries super quickly"],
+    tags: ["shirt", "casual", "linen", "summer", "premium"]
+  },
+  {
+    name: "Signature Pique Mercerized Polo",
+    category: "Shirts & T-shirts",
+    subCategory: "Polo T-shirts",
+    basePrice: 699,
+    images: IMAGES.shirts,
+    fabric: "Mercerized Pique Cotton",
+    washCare: "Machine Wash Cold with Similar Colors",
+    features: ["Elegant rib-knit collar and cuffs", "High-retention premium colors", "Subtle MBA embroidered emblem", "Ultimate smart casual look"],
+    tags: ["polo", "t-shirt", "casual", "mercerized", "premium"]
+  },
+
+  // Trousers & Chinos (Office & Daily Premium)
+  {
+    name: "Premium Super-Stretch Chino Trousers",
+    category: "Trousers & Chinos",
+    subCategory: "Premium Chinos",
+    basePrice: 1199,
+    images: IMAGES.trousers,
+    fabric: "97% Combed Cotton, 3% Lycra Spandex",
+    washCare: "Machine Wash Cold, Iron Medium",
+    features: ["Remarkable 4-way flexibility", "Inner grip waistband to keep shirts tucked", "Premium YKK metal zip fly", "Sleek flat-front styling"],
+    tags: ["chinos", "trousers", "formal", "office", "casual"]
+  },
+  {
+    name: "Classic Italian Fit Formal Trousers",
+    category: "Trousers & Chinos",
+    subCategory: "Formal Trousers",
+    basePrice: 1099,
+    images: IMAGES.trousers,
+    fabric: "Poly-Viscose Premium Blend",
+    washCare: "Machine Wash Warm, Steam Iron Only",
+    features: ["Slightly tapered modern silhouette", "Wrinkle-resistant smart fabric", "Double functional back welt pockets", "Highly suitable for executive wear"],
+    tags: ["trousers", "formal", "office", "wrinkle-free"]
+  },
+  {
+    name: "Salvage Denim Indigo Jeans",
+    category: "Trousers & Chinos",
+    subCategory: "Premium Jeans",
+    basePrice: 1499,
+    images: IMAGES.trousers,
+    fabric: "Raw Selvedge Denim Cotton Stretch",
+    washCare: "Wash Inside Out Cold, Minimal Detergent",
+    features: ["Deep authentic indigo dye", "Heavy-duty brass rivets", "Custom leather waistband patch", "Molds to your body shape over time"],
+    tags: ["jeans", "denim", "indigo", "casual", "rugged"]
+  },
+
+  // Accessories (Traditional & Modern accents)
+  {
+    name: "Handcrafted Pure Leather Mojaris",
+    category: "Accessories",
+    subCategory: "Mojaris & Juttis",
+    basePrice: 1299,
+    images: IMAGES.accessories,
+    fabric: "100% Genuine Goat Leather",
+    washCare: "Wipe with Dry Cloth, Keep Away from Water",
+    features: ["Stitched by local Madhya Pradesh artisans", "Cushioned memory foam inner padding", "Elegant pointed rajputana tip", "Perfect companion for Sherwanis"],
+    tags: ["mojari", "juttis", "shoes", "wedding", "leather"]
+  },
+  {
+    name: "Banarasi Silk Royal Safa & Turban",
+    category: "Accessories",
+    subCategory: "Turban & Safa",
+    basePrice: 899,
+    images: IMAGES.accessories,
+    fabric: "Woven Silk Brocade",
+    washCare: "Dry Clean Only",
+    features: ["Pre-stitched ready-to-wear comfort", "Embellished with royal stone kalgi", "Traditional Bhopal-style drapes", "Instant royal appeal for weddings"],
+    tags: ["safa", "turban", "pagri", "wedding", "royal"]
+  },
+  {
+    name: "Premium Full-Grain Leather Formal Belt",
+    category: "Accessories",
+    subCategory: "Premium Belts",
+    basePrice: 699,
+    images: IMAGES.accessories,
+    fabric: "Genuine Full-Grain Cow Leather",
+    washCare: "Apply Specialized Leather Cream",
+    features: ["Solid brass micro-adjust auto buckle", "Reversible dual colors: Black & Tan", "Scratch-resistant buckle finish", "Handcrafted premium stitching"],
+    tags: ["belt", "leather", "formal", "office", "accessory"]
+  }
 ];
 
-// Brand list for variety
-const BRANDS = ["MBA Kapdewala", "Kapda Premium", "Swadeshi Wear", "Daily Comfort", "Apna Style", "Utsav Wear"];
+// Curated list of traditional/modern brands for local showroom look
+const BRANDS = ["MBA Mens Wear", "Rajputana Sartorial", "Malwa Handloom", "Swadeshi Premium", "Utsav Heritage", "Indore Club Shirts"];
 
-// Size matrices
-const SIZES = {
-  Men: ["S", "M", "L", "XL", "XXL"],
-  Women: ["XS", "S", "M", "L", "XL"],
-  Kids: ["2Y", "4Y", "6Y", "8Y", "10Y"],
-  Footwear: ["38", "39", "40", "41", "42", "43", "44"],
-  Accessories: ["One Size"]
-};
+const SIZES = ["S", "M", "L", "XL", "XXL", "3XL"];
 
-// Colors list
 const COLORS = [
-  "Midnight Black", "Charcoal Gray", "Espresso Brown", "Champagne Gold",
-  "Mulberry Burgundy", "Navy Blue", "Olive Drab", "Forest Green", "Pearl White",
-  "Rose Gold", "Sage Green", "Camel Beige", "Oatmeal Melange", "Amber Bronze"
+  "Royal Maroon", "Navy Blue", "Classic Ivory", "Golden Amber",
+  "Forest Green", "Pitch Black", "Tan Brown", "Mustard Yellow",
+  "Sage Green", "Charcoal Gray", "Wine Burgundy", "Midnight Blue"
 ];
 
-// Generate exactly 150 unique, highly polished products
+// Generate exactly 300 highly polished products
 export function generateProducts(): Product[] {
   const list: Product[] = [];
-  const itemsNeeded = 150;
+  const itemsNeeded = 300;
 
-  // Let's create an expansion loop
   for (let i = 0; i < itemsNeeded; i++) {
     const base = productBases[i % productBases.length];
-    const index = Math.floor(i / productBases.length); // how many times we've cycled
+    const index = Math.floor(i / productBases.length); // cycles completed
     
     const brand = BRANDS[i % BRANDS.length];
     
-    // Add variations to the names so they feel distinct
+    // Create unique variations in the name
     let name = base.name;
-    let category = base.category as "Men" | "Women" | "Kids" | "Footwear" | "Accessories";
+    let category = base.category;
     let subCategory = base.subCategory;
     let fabric = base.fabric;
     let features = [...base.features];
     let images = base.images;
+    let basePriceINR = base.basePrice;
 
-    let basePriceUSD = base.basePrice;
+    // Mutate properties for higher indices to make products distinct
     if (index > 0) {
-      const adjectives = ["Imperial", "Signature", "Urban Premium", "Minimalist", "Bespoke", "Luxe", "Sartorial", "Contemporary", "Metropolitan", "Timeless", "Avant-Garde", "Studio"];
+      const adjectives = ["Premium", "Heritage", "Sartorial", "Royal", "Bespoke", "Exclusive", "Vintage", "Shahi", "Elite", "Malwa Special", "Maharaja", "Classic"];
       const adj = adjectives[(index + i) % adjectives.length];
       name = `${adj} ${base.name}`;
-      basePriceUSD = Math.round(base.basePrice * (0.85 + (i % 25) * 0.02)); // varied prices
+      
+      // Vary prices realisticly
+      basePriceINR = Math.round(base.basePrice * (0.85 + (i % 15) * 0.03));
     }
 
-    // Scale to Indian Rupees (approx 15x for highly friendly Indian clothing prices)
-    const rawPriceINR = basePriceUSD * 15;
-    // Round to nearest 50 or 100, then subtract 1 to get standard charm pricing (e.g. ₹999, ₹1299, ₹1499)
-    let price = Math.max(199, Math.round(rawPriceINR / 100) * 100 - 1);
+    // Ensure price is rounded and nice (e.g. ends in 49, 99)
+    let price = Math.max(299, Math.round(basePriceINR / 100) * 100 - 1);
+    if (price % 100 === 0) price -= 1; // get 999 style prices
 
-    // Determine MRP (Higher than price for dynamic discounts)
-    // Discount percentage ranges between 10% to 40% for many items
-    const givesDiscount = i % 3 !== 0; // 2 out of 3 items have discounts
-    const discount = givesDiscount ? (10 + (i % 7) * 5) : 0;
+    // Determine MRP (Higher than price for dynamic discount look)
+    const givesDiscount = i % 4 !== 0; // 3 out of 4 items have discounts
+    const discount = givesDiscount ? (10 + (i % 6) * 5) : 0;
     
     let mrp = price;
     if (discount > 0) {
@@ -186,60 +384,66 @@ export function generateProducts(): Product[] {
       mrp = Math.round(rawMrp / 100) * 100 - 1;
     }
     if (mrp <= price) {
-      mrp = price + 200; // default margin
+      mrp = price + 300;
     }
 
-    // Pick 2-3 random colors
+    // Colors selector
     const startColor = i % COLORS.length;
     const itemColors = [
       COLORS[startColor],
-      COLORS[(startColor + 2) % COLORS.length],
+      COLORS[(startColor + 2) % COLORS.length]
     ];
-    if (i % 2 === 0) {
-      itemColors.push(COLORS[(startColor + 5) % COLORS.length]);
+    if (i % 3 === 0) {
+      itemColors.push(COLORS[(startColor + 4) % COLORS.length]);
     }
 
     // Sizes
-    const itemSizes = SIZES[category];
+    const itemSizes = category === "Accessories" ? ["One Size"] : SIZES;
 
     // SKUs
-    const sku = `MK-${category.substring(0, 1).toUpperCase()}-${subCategory.substring(0, 2).toUpperCase()}-${String(i + 1).padStart(3, "0")}`;
+    const sku = `MBA-M-${category.substring(0, 2).toUpperCase()}-${String(i + 1).padStart(3, "0")}`;
 
-    // Select images. If base doesn't have images, fallback safely
-    const baseImages = images || IMAGES.Men.casual;
+    // Grab 4 images per product (3-6 required, let's give 4 images to make excellent sliders)
     const finalImages = [
-      baseImages[i % baseImages.length],
-      baseImages[(i + 1) % baseImages.length],
-      baseImages[(i + 2) % baseImages.length]
-    ].filter(Boolean);
+      images[i % images.length],
+      images[(i + 1) % images.length],
+      images[(i + 2) % images.length],
+      images[(i + 3) % images.length]
+    ];
 
-    // Stock
-    const stock = (i % 11 === 0) ? 0 : (10 + (i % 45)); // some out of stock for realistic admin tracking
+    // Stock count
+    const stock = (i % 14 === 0) ? 0 : (5 + (i % 35));
 
     // Rating
-    const rating = parseFloat((4.2 + (i % 9) * 0.1).toFixed(1));
+    const rating = parseFloat((4.1 + (i % 10) * 0.1).toFixed(1));
 
-    // Reviews list - generate custom dates and names
+    // Reviews generator
     const reviews: Review[] = BASE_REVIEWS.map((rev, revIdx) => ({
       ...rev,
       id: `rev-${i}-${revIdx}`,
-      rating: Math.min(5, Math.max(3, rev.rating + (i % 2 === 0 ? 0 : -1))) // slight variations
+      rating: Math.min(5, Math.max(3, rev.rating + (i % 2 === 0 ? 0 : -1)))
     }));
 
-    // Generate tags for deep search capability
+    // Generate tags
     const tags = [
       category.toLowerCase(),
       subCategory.toLowerCase(),
       brand.toLowerCase(),
       "mba",
-      "kapdewala"
+      "mens wear",
+      "bhopal",
+      "indore",
+      ...base.tags
     ];
-    if (discount > 0) tags.push("sale", "discount", "offer");
-    if (price > 2000) tags.push("premium", "luxury");
-    if (price < 1000) tags.push("budget", "essentials");
-    if (subCategory.includes("Winter")) tags.push("warm", "cozy", "winter");
-    if (subCategory.includes("Formal")) tags.push("office", "suits", "event");
-    if (subCategory.includes("Casual")) tags.push("comfy", "everyday");
+
+    // Distribute into Home Page sections dynamically using boolean flags
+    const isFestival = category === "Kurta Pyjama" || category === "Nehru Jackets & Koti" || base.tags.includes("festival");
+    const isWedding = category === "Sherwani & Indo-Western" || base.tags.includes("wedding");
+    const isOfficeWear = category === "Suits & Blazers" || subCategory.includes("Formal") || base.tags.includes("office");
+    const isBestSeller = i % 5 === 0;
+    const isTrending = i % 6 === 1;
+    const isNewArrival = i % 4 === 2;
+    const isSeasonCollection = category === "Shirts & T-shirts" || category === "Trousers & Chinos";
 
     list.push({
       id: `prod-${i + 1}`,
@@ -255,15 +459,22 @@ export function generateProducts(): Product[] {
       colors: itemColors,
       images: finalImages,
       stock,
-      description: `Elevate your daily look with the ${name} by ${brand}. Crafted from the finest ${fabric}, this high-quality outfit features a comfortable fit and beautiful detailing designed to make you look elegant and premium.`,
+      description: `Upgrade your clothing standard with the newly crafted ${name} by ${brand}. Made with premium ${fabric} fabric specifically curated for modern Indian tastes, this outfit ensures rich aesthetics, excellent air ventilation, and high durability. Ideal for modern showrooms, wedding ceremonies, or everyday premium style.`,
       features,
       fabric,
       washCare: base.washCare,
-      deliveryInfo: "Complimentary express shipping across India. Delivers within 2-4 business days. Safe, contactless delivery in premium eco-friendly MBA Kapdewala boxes.",
-      returnPolicy: "We offer an easy 30-day return or exchange policy. Return any unused item in its original packaging with tags intact. Complimentary home pickup is available.",
+      deliveryInfo: "Complimentary super-fast shipping across Madhya Pradesh (Bhopal, Indore, Jabalpur, Gwalior) and all over India. Delivered securely in protective eco-friendly MBA Mens Wear boxes with easy tracking within 2-4 working days.",
+      returnPolicy: "Hassle-free 15-day return and exchange policy. Return any unused item in original state with tag. Free home pickup available from Indore & Bhopal coordinates.",
       rating,
       reviews,
-      tags
+      tags,
+      isFestival,
+      isWedding,
+      isOfficeWear,
+      isBestSeller,
+      isTrending,
+      isNewArrival,
+      isSeasonCollection
     });
   }
 
@@ -272,46 +483,43 @@ export function generateProducts(): Product[] {
 
 export const PRODUCTS_DATABASE = generateProducts();
 
-// Coupon presets
-export const COUPONS: { [key: string]: { code: string; discountType: "percentage" | "fixed"; value: number; minSpend: number; description: string } } = {
-  MBA10: { code: "MBA10", discountType: "percentage", value: 10, minSpend: 999, description: "Enjoy 10% off on orders above ₹999." },
-  WELCOME200: { code: "WELCOME200", discountType: "fixed", value: 200, minSpend: 1499, description: "₹200 off on your first purchase above ₹1,499." },
-  MBASUPER: { code: "MBASUPER", discountType: "percentage", value: 20, minSpend: 2999, description: "Exclusive 20% off on orders above ₹2,999." }
+// Coupon presets suitable for India
+export const COUPONS = {
+  WELCOME500: { code: "WELCOME500", discountType: "fixed" as const, value: 500, minSpend: 1999, description: "Flat ₹500 discount on your first order of ₹1,999 and above." },
+  FESTIVAL10: { code: "FESTIVAL10", discountType: "percentage" as const, value: 10, minSpend: 1499, description: "Celebrate with 10% discount on all ethnic wear purchases above ₹1,499." },
+  MBASHOWROOM: { code: "MBASHOWROOM", discountType: "percentage" as const, value: 15, minSpend: 4999, description: "Exclusive 15% discount for premium high-value shoppers on orders above ₹4,999." }
 };
 
-// Blog presets
+// Local Bhopal / Indore Blog content
 export const BLOG_POSTS = [
   {
     id: "blog-1",
-    title: "The Renaissance of Minimalism: Quiet Luxury Explained",
-    summary: "Discover why the elite are transitioning away from heavy logos and embracing beautiful tailored fabrics and silent tones.",
-    content: `In the fast-evolving world of haute couture, loud branding has officially stepped aside for something far more sophisticated: 'Quiet Luxury'. Often referred to as stealth wealth, this design aesthetic prioritizes impeccable craftsmanship, ultra-premium fabrics, and understated neutral tones.
+    title: "Trending Traditional Styles for the Bhopal Festive Season",
+    summary: "Discover the perfect fusion of classic Lucknowi craftsmanship and royal Banarasi weaves curated by MBA Mens Wear.",
+    content: `Festive celebrations in Madhya Pradesh are a grand affair, and your styling should reflect this majestic spirit. This year, we're witnessing a beautiful resurgence of traditional handloom fibers fused with modern, tailored cuts.
 
-    At MBA Kapdewala, we've carefully structured our latest collections to embody this ethos. From our classic 100% Merino Wool sweaters to double-breasted Cashmere Trench coats, each garment represents an investment in timeless quality rather than transient branding hype.
-
-    Here are three simple ways to transition your wardrobe into Quiet Luxury:
-    1. Invest in Tailoring: A perfect fitting jacket or tuxedo instantly commands attention.
-    2. Focus on Materiality: Prefer mulberry silk, cashmere, and high-quality full grain box calf leather.
-    3. Monochromatic Styling: Dress in unified shades of charcoal, camel, beige, and matte black to create a highly streamlined, taller, and incredibly polished appearance.`,
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600",
-    category: "Style Guide",
-    date: "2026-07-10",
-    author: "Alessia Moretti",
-    readTime: "4 min read"
+    At MBA Mens Wear Bhopal/Indore, we've carefully curated a festive line centering Lucknowi Chikankari work on soft pastels and royal Banarasi brocade silk jackets. Here is how you can stand out:
+    
+    1. Layer with a Koti: Slip a floral jacquard Nehru jacket over a solid white raw cotton kurta. It instantly adds depth and style.
+    2. Embrace Pastels: Lavender, mint green, and champagne peach are dominating morning ceremonies, while royal maroon and deep indigo are reserved for the evening.
+    3. Choose Genuine Mojaris: Finish your ethnic wear with handcrafted leather Mojaris instead of modern boots. It establishes ultimate authenticity.`,
+    image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?auto=format&fit=crop&q=80&w=600",
+    category: "Festive Trends",
+    date: "2026-07-12",
+    author: "Sartorial Team Bhopal",
+    readTime: "3 min read"
   },
   {
     id: "blog-2",
-    title: "Fall-Winter Outerwear: How to Layer with Precision",
-    summary: "A practical masterclass on styling trench coats, heavy velvet blazers, and knitwear during colder seasons.",
-    content: `Layering is the ultimate creative playground for fashion enthusiasts. Colder weather shouldn't mean compromising on silhouette or styling. The secret lies in balancing fabric weight, textures, and length.
+    title: "Indore's Summer Wedding Guide: The Art of Lightweight Royal Achkans",
+    summary: "No need to sweat in heavy woolen suits! Learn how lightweight linen blazers and raw silk Indo-Western achkans keep you cool and regal.",
+    content: `Indore weddings are famous for great food and unmatched style. But as the temperatures soar, wearing thick woolen suits can quickly become uncomfortable. The solution? Ultra-light organic fibers woven into heavy-look aesthetics.
 
-    A luxury outfit should tell a story. Start with an ultra-soft base layer, like our Sartorial Silk Blend shirt or a fine-gauge knit. Add a textured middle layer—such as a leisure linen blazer or deep cashmere sweater. Finally, crown the ensemble with a heavy-weight structural outer layer like our Cashmere Trench Coat.
-
-    Pro Styling Tip: Ensure your hemlines align beautifully, and experiment with popping collars or turning cuffs to reveal contrasting luxury silk linings!`,
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600",
-    category: "Trend Alert",
-    date: "2026-07-15",
-    author: "Dominic Thorne",
+    Our Indore showroom features an exquisite collection of Jute Silk Achkans and French Linen Blazers. They maintain a solid, premium structure while allowing absolute ventilation. Pair them with a comfortable stretch chino or thin linen trouser to breeze through late-night reception parties with unmatched comfort and style!`,
+    image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
+    category: "Wedding Special",
+    date: "2026-07-16",
+    author: "Indore Concierge",
     readTime: "5 min read"
   }
 ];
