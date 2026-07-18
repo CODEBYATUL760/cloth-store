@@ -278,7 +278,7 @@ export function BlogPage() {
       ) : (
         <div>
           <div className="text-center mb-12">
-            <span className="text-amber-500 font-mono text-[10px] uppercase tracking-widest block mb-2">Aesthetic & Curation</span>
+            <span className="text-white font-mono text-[10px] uppercase tracking-widest block mb-2">Aesthetic & Curation</span>
             <h1 className="text-3xl sm:text-4xl font-sans font-medium tracking-tight">The Vogue Journal</h1>
           </div>
 
@@ -286,7 +286,7 @@ export function BlogPage() {
             {BLOG_POSTS.map((post) => (
               <div
                 key={post.id}
-                className="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all cursor-pointer group flex flex-col justify-between"
+                className="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-white/30 transition-all cursor-pointer group flex flex-col justify-between"
                 onClick={() => setSelectedPost(post)}
               >
                 <div>
@@ -297,12 +297,12 @@ export function BlogPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-amber-500 text-[9px] uppercase font-mono px-2 py-0.5 rounded border border-zinc-800">
+                    <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-white text-[9px] uppercase font-mono px-2 py-0.5 rounded border border-zinc-800">
                       {post.category}
                     </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-base font-semibold group-hover:text-amber-500 transition-colors leading-snug">
+                    <h3 className="text-base font-semibold group-hover:text-zinc-200 transition-colors leading-snug">
                       {post.title}
                     </h3>
                     <p className="text-xs text-zinc-400 mt-2 line-clamp-2">
@@ -312,7 +312,7 @@ export function BlogPage() {
                 </div>
                 <div className="p-5 border-t border-zinc-900 flex items-center justify-between text-[10px] text-zinc-500 font-mono">
                   <span>{post.date}</span>
-                  <span className="text-amber-500 group-hover:underline flex items-center gap-1 font-semibold">
+                  <span className="text-white group-hover:underline flex items-center gap-1 font-semibold">
                     Read Article <ArrowRight size={10} />
                   </span>
                 </div>
@@ -339,7 +339,7 @@ export function LookbookPage() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 text-white">
       <div className="text-center mb-12">
-        <span className="text-amber-500 font-mono text-[10px] uppercase tracking-widest block mb-2">Editorial Portfolio</span>
+        <span className="text-white font-mono text-[10px] uppercase tracking-widest block mb-2">Editorial Portfolio</span>
         <h1 className="text-3xl sm:text-5xl font-sans tracking-tight font-medium">Vol. III Lookbook</h1>
         <p className="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">Summer-Autumn Bespoke Runway Capsule</p>
       </div>
@@ -357,7 +357,7 @@ export function LookbookPage() {
             </div>
             {/* Overlay description */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 flex flex-col justify-end h-40">
-              <span className="text-[9px] font-mono uppercase tracking-widest text-amber-500">Editorial Capsule</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest text-white">Editorial Capsule</span>
               <h3 className="text-lg font-medium text-white tracking-wide mt-1">{item.title}</h3>
               <p className="text-xs text-zinc-400 font-light mt-1">{item.subtitle}</p>
             </div>
@@ -403,7 +403,7 @@ export function LegalPoliciesPage({ docType }: { docType: "privacy" | "terms" | 
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 text-white">
-      <h1 className="text-2xl font-sans tracking-tight font-medium mb-4 text-amber-500">{selected.title}</h1>
+      <h1 className="text-2xl font-sans tracking-tight font-medium mb-4 text-white">{selected.title}</h1>
       <p className="text-xs text-zinc-500 uppercase font-mono tracking-wider mb-6 border-b border-zinc-900 pb-2">Last Updated: July 2026</p>
       <div className="text-xs sm:text-sm text-zinc-300 leading-relaxed whitespace-pre-line">
         {selected.text}
@@ -475,7 +475,7 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
       {/* Tracker input */}
       <form onSubmit={handleTrack} className="bg-zinc-950 border border-zinc-900 p-5 rounded-2xl mb-8 space-y-4 shadow-xl">
         <p className="text-xs text-zinc-400">
-          Insert your order identifier (e.g. <span className="font-mono text-amber-500">UV-DEMO-777</span> or one from your profile orders list) to locate package location.
+          Insert your order identifier (e.g. <span className="font-mono text-white">UV-DEMO-777</span> or one from your profile orders list) to locate package location.
         </p>
         <div className="flex gap-2">
           <input
@@ -484,11 +484,11 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
             value={trackId}
             onChange={e => setTrackId(e.target.value)}
             placeholder="e.g. UV-DEMO-777"
-            className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 uppercase font-mono"
+            className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/40 uppercase font-mono"
           />
           <button
             type="submit"
-            className="bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
+            className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Track Parcel
           </button>
@@ -507,7 +507,7 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-zinc-900 pb-4 gap-2">
             <div>
               <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider block">Currently Tracking:</span>
-              <span className="text-sm font-semibold font-mono text-amber-500">{searchedOrder.id}</span>
+              <span className="text-sm font-semibold font-mono text-white">{searchedOrder.id}</span>
             </div>
             <div>
               <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider block text-left sm:text-right">Fulfillment Code:</span>
@@ -522,7 +522,7 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
                 {/* Dot */}
                 <span className={`absolute -left-8.5 top-0.5 h-5 w-5 rounded-full border flex items-center justify-center ${
                   idx === 0 
-                    ? "bg-amber-500 border-black text-black animate-pulse" 
+                    ? "bg-white border-zinc-950 text-black animate-pulse" 
                     : "bg-zinc-900 border-zinc-800 text-zinc-400"
                 }`}>
                   {idx === 0 ? <CheckCircle2 size={12} /> : <div className="h-1.5 w-1.5 rounded-full bg-zinc-600" />}
@@ -530,7 +530,7 @@ export function TrackOrderPage({ orderHistory }: { orderHistory: Order[] }) {
                 
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs font-semibold tracking-wide uppercase font-mono ${idx === 0 ? "text-amber-500" : "text-zinc-400"}`}>
+                    <span className={`text-xs font-semibold tracking-wide uppercase font-mono ${idx === 0 ? "text-white" : "text-zinc-400"}`}>
                       {step.status}
                     </span>
                     <span className="text-[9px] text-zinc-600 font-mono">{step.date}</span>

@@ -133,7 +133,7 @@ export default function AdminPanel({
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-zinc-800 pb-6 mb-8 gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="bg-amber-500/10 text-amber-500 text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-amber-500/20">Store Admin</span>
+            <span className="bg-white/10 text-white text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-white/20">Store Admin</span>
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs text-zinc-500 font-mono">SYSTEM ACTIVE</span>
           </div>
@@ -157,7 +157,7 @@ export default function AdminPanel({
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-lg transition-all ${
                   activeTab === tab.id
-                    ? "bg-amber-500 text-black shadow-lg"
+                    ? "bg-white text-black shadow-lg"
                     : "text-zinc-400 hover:text-white hover:bg-zinc-800/50"
                 }`}
               >
@@ -174,7 +174,7 @@ export default function AdminPanel({
         {[
           { label: "Gross Revenues", val: `₹${stats.totalSales.toLocaleString("en-IN")}`, color: "text-emerald-500", desc: "Real-time orders ledger" },
           { label: "Fulfillment Orders", val: stats.ordersCount, color: "text-blue-400", desc: "Checkout transactions" },
-          { label: "Active Products", val: `${stats.activeProducts}/${products.length}`, color: "text-amber-500", desc: `${stats.outOfStock} items depleted` },
+          { label: "Active Products", val: `${stats.activeProducts}/${products.length}`, color: "text-white", desc: `${stats.outOfStock} items depleted` },
           { label: "Subscribers & Clients", val: stats.uniqueCustomersCount, color: "text-purple-400", desc: "Newsletter & Profiles" }
         ].map((st, idx) => (
           <div key={idx} className="bg-zinc-900/40 border border-zinc-850 p-4 rounded-xl flex flex-col justify-between">
@@ -198,12 +198,12 @@ export default function AdminPanel({
                   const heightPercentage = Math.min(100, (val / 5200) * 100);
                   return (
                     <div key={i} className="flex-1 flex flex-col items-center gap-2 group cursor-pointer">
-                      <div className="w-full bg-zinc-850 hover:bg-amber-500/20 rounded-md transition-colors relative h-full flex items-end overflow-hidden">
+                      <div className="w-full bg-zinc-850 hover:bg-white/20 rounded-md transition-colors relative h-full flex items-end overflow-hidden">
                         <motion.div
                           initial={{ height: 0 }}
                           animate={{ height: `${heightPercentage}%` }}
                           transition={{ duration: 0.8, delay: i * 0.05 }}
-                          className="w-full bg-amber-500 group-hover:bg-amber-400 rounded-b-md"
+                          className="w-full bg-white group-hover:bg-zinc-200 rounded-b-md"
                         />
                       </div>
                       <span className="text-[9px] text-zinc-500 font-mono">0{i+1}</span>
@@ -221,7 +221,7 @@ export default function AdminPanel({
                   {[
                     { label: "Delivered", count: orders.filter(o => o.status === "Delivered").length, pct: "65%", col: "bg-emerald-500" },
                     { label: "Shipped", count: orders.filter(o => o.status === "Shipped").length, pct: "20%", col: "bg-blue-400" },
-                    { label: "Out for Delivery", count: orders.filter(o => o.status === "Out for Delivery").length, pct: "10%", col: "bg-amber-400" },
+                    { label: "Out for Delivery", count: orders.filter(o => o.status === "Out for Delivery").length, pct: "10%", col: "bg-zinc-400" },
                     { label: "Placed/Processing", count: orders.filter(o => o.status === "Placed" || o.status === "Processing").length, pct: "5%", col: "bg-purple-500" }
                   ].map((stat, i) => (
                     <div key={i}>
@@ -252,7 +252,7 @@ export default function AdminPanel({
             <h3 className="font-sans font-medium text-sm text-zinc-400 uppercase tracking-wider font-mono">Apparel Catalog Management</h3>
             <button
               onClick={startAdd}
-              className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
+              className="flex items-center gap-1.5 bg-white hover:bg-zinc-200 text-black text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
             >
               <Plus size={14} /> Add Luxury Product
             </button>
@@ -266,7 +266,7 @@ export default function AdminPanel({
               onSubmit={handleSaveProduct}
               className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl space-y-4"
             >
-              <h4 className="font-medium text-sm text-amber-500 border-b border-zinc-800 pb-2 flex items-center gap-1.5">
+              <h4 className="font-medium text-sm text-white border-b border-zinc-800 pb-2 flex items-center gap-1.5">
                 <Edit3 size={14} /> {isAddingNew ? "Create New Fashion Design" : `Edit Catalog Item: ${editingProduct?.sku}`}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -277,7 +277,7 @@ export default function AdminPanel({
                     required
                     value={formName}
                     onChange={e => setFormName(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40"
                   />
                 </div>
                 <div>
@@ -287,7 +287,7 @@ export default function AdminPanel({
                     required
                     value={formPrice}
                     onChange={e => setFormPrice(Number(e.target.value))}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40"
                   />
                 </div>
                 <div>
@@ -297,7 +297,7 @@ export default function AdminPanel({
                     required
                     value={formStock}
                     onChange={e => setFormStock(Number(e.target.value))}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40"
                   />
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function AdminPanel({
                   <select
                     value={formCategory}
                     onChange={e => setFormCategory(e.target.value as any)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50 text-white"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40 text-white"
                   >
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
@@ -322,7 +322,7 @@ export default function AdminPanel({
                   <select
                     value={formSubCategory}
                     onChange={e => setFormSubCategory(e.target.value as any)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50 text-white"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40 text-white"
                   >
                     <option value="Casual Wear">Casual Wear</option>
                     <option value="Formal Wear">Formal Wear</option>
@@ -341,7 +341,7 @@ export default function AdminPanel({
                     type="text"
                     value={formBrand}
                     onChange={e => setFormBrand(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40"
                   />
                 </div>
                 <div>
@@ -350,7 +350,7 @@ export default function AdminPanel({
                     type="text"
                     value={formFabric}
                     onChange={e => setFormFabric(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-amber-500/50"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs focus:outline-none focus:border-white/40"
                   />
                 </div>
               </div>
@@ -368,7 +368,7 @@ export default function AdminPanel({
                 </button>
                 <button
                   type="submit"
-                  className="bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
+                  className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
                 >
                   Save to Catalog
                 </button>
@@ -399,7 +399,7 @@ export default function AdminPanel({
                         {p.category} / {p.subCategory}
                       </span>
                     </td>
-                    <td className="p-3 font-bold text-amber-500">₹{p.price.toLocaleString("en-IN")}</td>
+                    <td className="p-3 font-bold text-white">₹{p.price.toLocaleString("en-IN")}</td>
                     <td className="p-3">
                       {p.stock > 0 ? (
                         <span className="text-emerald-400 font-medium">{p.stock} units</span>
@@ -411,7 +411,7 @@ export default function AdminPanel({
                       <div className="flex justify-center items-center gap-1.5">
                         <button
                           onClick={() => startEdit(p)}
-                          className="p-1 text-zinc-400 hover:text-amber-500 rounded hover:bg-zinc-800 transition-colors"
+                          className="p-1 text-zinc-400 hover:text-white rounded hover:bg-zinc-800 transition-colors"
                         >
                           <Edit3 size={13} />
                         </button>
@@ -468,7 +468,7 @@ export default function AdminPanel({
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
                           ord.status === "Delivered" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
                           ord.status === "Shipped" ? "bg-blue-500/10 text-blue-400 border-blue-500/20" :
-                          ord.status === "Out for Delivery" ? "bg-amber-500/10 text-amber-400 border-amber-500/20" :
+                          ord.status === "Out for Delivery" ? "bg-white/10 text-white border-white/20" :
                           "bg-purple-500/10 text-purple-400 border-purple-500/20"
                         }`}>
                           {ord.status}
@@ -478,7 +478,7 @@ export default function AdminPanel({
                         <select
                           value={ord.status}
                           onChange={e => onUpdateOrderStatus(ord.id, e.target.value as any)}
-                          className="bg-zinc-950 border border-zinc-800 rounded p-1 text-[11px] text-zinc-300 focus:outline-none focus:border-amber-500/50"
+                          className="bg-zinc-950 border border-zinc-800 rounded p-1 text-[11px] text-zinc-300 focus:outline-none focus:border-white/40"
                         >
                           <option value="Placed">Placed</option>
                           <option value="Processing">Processing</option>
@@ -503,7 +503,7 @@ export default function AdminPanel({
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { code: "VOGUE10", type: "10% OFF", desc: "For basket sizes over $100", bg: "from-amber-500/10 to-transparent", border: "border-amber-500/20" },
+              { code: "VOGUE10", type: "10% OFF", desc: "For basket sizes over $100", bg: "from-white/10 to-transparent", border: "border-white/20" },
               { code: "WELCOME50", type: "$50 USD FLAT", desc: "For basket sizes over $250", bg: "from-blue-500/10 to-transparent", border: "border-blue-500/20" },
               { code: "LUXEVIP", type: "20% OFF", desc: "For premium spends over $400", bg: "from-purple-500/10 to-transparent", border: "border-purple-500/20" }
             ].map((cp, idx) => (
@@ -511,7 +511,7 @@ export default function AdminPanel({
                 <div>
                   <span className="font-mono text-zinc-500 text-[10px] uppercase block mb-1">PROMOTION ACTIVE</span>
                   <div className="font-mono text-xl font-bold tracking-widest text-white">{cp.code}</div>
-                  <div className="text-sm font-semibold text-amber-500 mt-2">{cp.type}</div>
+                  <div className="text-sm font-semibold text-white mt-2">{cp.type}</div>
                   <p className="text-xs text-zinc-400 mt-1">{cp.desc}</p>
                 </div>
                 <div className="text-[10px] text-zinc-500 mt-4 font-mono">Usage status: Standard checkout validation</div>

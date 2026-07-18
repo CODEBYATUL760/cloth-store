@@ -1,13 +1,13 @@
-// Customizable Configuration for MBA Mens Wear / Indore & Bhopal Clothing Showrooms
+// Customizable Configuration for MBA Kapdewala / Indore & Bhopal Clothing Showrooms
 
 export const STORE_CONFIG = {
-  storeName: "MBA Mens Wear",
+  storeName: "MBA Kapdewala",
   tagline: "The Premium Men's Wardrobe",
   taglineHindi: "Modern Premium Menswear Showroom",
-  logoText: "MBA MENS WEAR",
+  logoText: "MBA KAPDEWALA",
   phoneNumber: "+91 98260 98260", // Fictional premium Bhopal / Indore contact
   whatsappNumber: "919826098260", // Format: CountryCode + Number without '+' or '00'
-  emailAddress: "contact@mbamenswear.com",
+  emailAddress: "contact@mbakapdewala.com",
   brandColorTheme: "amber", // Tailwind color family used: amber/orange/zinc
   
   // Locations of modern physical Indian showrooms

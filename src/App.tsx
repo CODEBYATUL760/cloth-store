@@ -19,6 +19,7 @@ import AssistantDrawer from "./components/AssistantDrawer";
 import BottomNav from "./components/BottomNav";
 import SizeGuideModal from "./components/SizeGuideModal";
 import AdminPanel from "./components/AdminPanel";
+import { MbaLogo } from "./components/MbaLogo";
 
 export function formatPrice(amount: number): string {
   return `₹${amount.toLocaleString("en-IN")}`;
@@ -426,7 +427,7 @@ export default function App() {
     return (
       <div
         key={prod.id}
-        className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-amber-500/35 transition-all flex flex-col justify-between shadow-sm hover:shadow-amber-500/5 duration-300"
+        className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-white/50 transition-all flex flex-col justify-between shadow-sm hover:shadow-white/5 duration-300"
       >
         <div className="relative overflow-hidden aspect-square cursor-pointer" onClick={() => navigateToProduct(prod.id)}>
           <img
@@ -436,28 +437,28 @@ export default function App() {
             referrerPolicy="no-referrer"
           />
           {prod.discount > 0 && (
-            <span className="absolute top-3 left-3 bg-amber-500 text-black text-[9px] font-extrabold uppercase tracking-widest font-sans px-2.5 py-0.5 rounded shadow-md">
+            <span className="absolute top-3 left-3 bg-white text-black text-[9px] font-extrabold uppercase tracking-widest font-sans px-2.5 py-0.5 rounded shadow-md">
               -{prod.discount}% OFF
             </span>
           )}
           <button
             onClick={(e) => { e.stopPropagation(); toggleWishlist(prod.id); }}
-            className="absolute top-3 right-3 p-2 rounded-full bg-black/70 hover:bg-black text-zinc-400 hover:text-amber-500 border border-zinc-800 backdrop-blur-sm transition-all animate-none"
+            className="absolute top-3 right-3 p-2 rounded-full bg-black/70 hover:bg-black text-zinc-400 hover:text-white border border-zinc-800 backdrop-blur-sm transition-all animate-none"
           >
-            <Heart size={14} className={wishlist.includes(prod.id) ? "fill-amber-500 text-amber-500" : ""} />
+            <Heart size={14} className={wishlist.includes(prod.id) ? "fill-white text-white" : ""} />
           </button>
         </div>
 
         <div className="p-4 flex-1 flex flex-col justify-between bg-zinc-950/20">
           <div className="cursor-pointer" onClick={() => navigateToProduct(prod.id)}>
-            <span className="text-[9px] text-amber-500/80 uppercase tracking-widest font-mono font-bold block mb-1">
+            <span className="text-[9px] text-zinc-400 uppercase tracking-widest font-mono font-bold block mb-1">
               {prod.category} • {prod.brand}
             </span>
-            <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-amber-500 transition-colors text-white leading-snug">
+            <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-white transition-colors text-white leading-snug">
               {prod.name}
             </h4>
             <div className="flex items-center gap-1 mt-1.5">
-              <Star size={10} className="fill-amber-500 text-amber-500" />
+              <Star size={10} className="fill-white text-white" />
               <span className="text-[10px] font-mono text-zinc-400 font-bold">{prod.rating}</span>
               <span className="text-[9px] text-zinc-600 font-medium">({prod.reviews.length})</span>
             </div>
@@ -466,11 +467,11 @@ export default function App() {
           <div className="mt-4 flex items-center justify-between border-t border-zinc-900/60 pt-3">
             <div className="flex flex-col">
               <span className="text-xs text-zinc-500 font-mono line-through leading-none">{prod.discount > 0 ? formatPrice(prod.mrp) : ""}</span>
-              <span className="text-sm font-bold text-amber-500 font-mono leading-tight">{formatPrice(prod.price)}</span>
+              <span className="text-sm font-bold text-white font-mono leading-tight">{formatPrice(prod.price)}</span>
             </div>
             <button
               onClick={() => handleAddToCart(prod, prod.sizes[0], prod.colors[0], 1)}
-              className="bg-zinc-900 hover:bg-amber-500 text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all"
+              className="bg-zinc-900 hover:bg-white text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all"
             >
               + Add
             </button>
@@ -490,7 +491,7 @@ export default function App() {
       {/* HEADER SECTION (Warm, inviting, premium but highly approachable theme) */}
       <header
         id="urban-header"
-        className="sticky top-0 z-40 bg-gradient-to-r from-amber-600 to-orange-600 text-white border-b border-orange-700 shadow-md backdrop-blur-md transition-all duration-300"
+        className="sticky top-0 z-40 bg-black text-white border-b border-zinc-900 shadow-md backdrop-blur-md transition-all duration-300"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
@@ -499,13 +500,13 @@ export default function App() {
             <button
               id="hamburger-menu-btn"
               onClick={() => setMobileMenuOpen(true)}
-              className="p-1.5 rounded-md text-orange-100 hover:text-white transition-colors"
+              className="p-1.5 rounded-md text-zinc-400 hover:text-white transition-colors"
             >
               <Menu size={22} />
             </button>
             <button
               onClick={triggerSearchModal}
-              className="p-1.5 rounded-md text-orange-100 hover:text-white transition-colors"
+              className="p-1.5 rounded-md text-zinc-400 hover:text-white transition-colors"
             >
               <Search size={20} />
             </button>
@@ -515,49 +516,46 @@ export default function App() {
           <div
             id="brand-logo"
             onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("home"); }}
-            className="flex items-center gap-1.5 cursor-pointer select-none"
+            className="flex items-center gap-2 cursor-pointer select-none py-1"
           >
-            <h1 className="font-sans font-black text-xl sm:text-2xl tracking-wide text-white drop-shadow-sm">
-              {STORE_CONFIG.storeName}
-            </h1>
-            <span className="h-2.5 w-2.5 bg-yellow-300 rounded-full inline-block animate-pulse" />
+            <MbaLogo className="h-10 md:h-[52px] w-auto transition-transform hover:scale-105 duration-200" />
           </div>
 
           {/* Desktop Navigation Link items */}
           <nav className="hidden xl:flex items-center gap-5 text-xs uppercase tracking-widest font-bold">
             <button
               onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "shop" && selectedCategory === "All" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "shop" && selectedCategory === "All" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Shop All
             </button>
             <button
               onClick={() => { setSelectedCategory("Kurta Pyjama"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "shop" && selectedCategory === "Kurta Pyjama" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "shop" && selectedCategory === "Kurta Pyjama" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Kurta Pyjama
             </button>
             <button
               onClick={() => { setSelectedCategory("Sherwani & Indo-Western"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "shop" && selectedCategory === "Sherwani & Indo-Western" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "shop" && selectedCategory === "Sherwani & Indo-Western" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Sherwani
             </button>
             <button
               onClick={() => { setSelectedCategory("Nehru Jackets & Koti"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "shop" && selectedCategory === "Nehru Jackets & Koti" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "shop" && selectedCategory === "Nehru Jackets & Koti" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Nehru Jackets
             </button>
             <button
               onClick={() => { setSelectedCategory("Suits & Blazers"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "shop" && selectedCategory === "Suits & Blazers" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "shop" && selectedCategory === "Suits & Blazers" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Suits & Blazers
             </button>
             <button
               onClick={() => setCurrentTab("faq")}
-              className={`hover:text-yellow-300 transition-colors ${currentTab === "faq" ? "text-yellow-300" : "text-zinc-100"}`}
+              className={`hover:text-white transition-all ${currentTab === "faq" ? "text-white underline underline-offset-4" : "text-zinc-400"}`}
             >
               Showrooms
             </button>
@@ -572,18 +570,18 @@ export default function App() {
                 value={searchQuery}
                 onChange={e => { setSearchQuery(e.target.value); if (currentTab !== "shop") setCurrentTab("shop"); }}
                 placeholder="Search clothes..."
-                className="bg-orange-850 border border-orange-700 text-xs rounded-full py-1.5 pl-3.5 pr-8 w-44 focus:w-56 transition-all focus:outline-none focus:border-yellow-300 text-white placeholder-orange-200"
+                className="bg-zinc-900 border border-zinc-800 text-xs rounded-full py-1.5 pl-3.5 pr-8 w-44 focus:w-56 transition-all focus:outline-none focus:border-white text-white placeholder-zinc-500"
               />
-              <Search size={14} className="absolute right-3 text-orange-200" />
+              <Search size={14} className="absolute right-3 text-zinc-500" />
             </div>
 
             {/* AI Assistant Activator (Blinking/Glowing highlight) */}
             <button
               id="ai-assistant-header-btn"
               onClick={() => setIsAssistantOpen(true)}
-              className="relative flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black border border-yellow-300 text-[10px] font-mono tracking-wider px-3 py-1.5 rounded-full hover:from-yellow-300 hover:to-yellow-400 transition-all font-bold select-none group shadow-sm"
+              className="relative flex items-center gap-1 bg-white text-black border border-white text-[10px] font-mono tracking-wider px-3 py-1.5 rounded-full hover:bg-zinc-200 transition-all font-bold select-none group shadow-sm"
             >
-              <Sparkles size={11} className="animate-spin text-orange-700 group-hover:scale-110 transition-transform" style={{ animationDuration: "8s" }} />
+              <Sparkles size={11} className="animate-spin text-black group-hover:scale-110 transition-transform" style={{ animationDuration: "8s" }} />
               <span className="hidden sm:inline">AI Clothing Guide</span>
             </button>
 
@@ -594,9 +592,9 @@ export default function App() {
               className="relative p-1.5 text-zinc-400 hover:text-white transition-colors"
               title="Wishlist"
             >
-              <Heart size={20} className={wishlist.length > 0 ? "fill-amber-500 text-amber-500" : ""} />
+              <Heart size={20} className={wishlist.length > 0 ? "fill-white text-white" : ""} />
               {wishlist.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-500 text-black text-[9px] font-bold rounded-full h-4.5 w-4.5 flex items-center justify-center border border-black">
+                <span className="absolute -top-1 -right-1 bg-white text-black text-[9px] font-bold rounded-full h-4.5 w-4.5 flex items-center justify-center border border-black">
                   {wishlist.length}
                 </span>
               )}
@@ -611,7 +609,7 @@ export default function App() {
             >
               <ShoppingBag size={20} />
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-500 text-black text-[9px] font-bold rounded-full h-4.5 w-4.5 flex items-center justify-center border border-black">
+                <span className="absolute -top-1 -right-1 bg-white text-black text-[9px] font-bold rounded-full h-4.5 w-4.5 flex items-center justify-center border border-black">
                   {cart.reduce((sum, item) => sum + item.quantity, 0)}
                 </span>
               )}
@@ -624,13 +622,13 @@ export default function App() {
               className="p-1.5 text-zinc-400 hover:text-white transition-colors"
               title={isLoggedIn ? "My Profile" : "Login / Register"}
             >
-              <User size={20} className={isLoggedIn ? "text-amber-500" : ""} />
+              <User size={20} className={isLoggedIn ? "text-white" : ""} />
             </button>
 
             {/* Admin Backoffice Entry Link */}
             <button
               onClick={() => setCurrentTab("admin")}
-              className={`hidden sm:inline-block text-[10px] font-mono tracking-widest px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-amber-500 hover:border-amber-500/30 transition-all ${currentTab === "admin" ? "text-amber-500 border-amber-500/50" : ""}`}
+              className={`hidden sm:inline-block text-[10px] font-mono tracking-widest px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-white/30 transition-all ${currentTab === "admin" ? "text-white border-white/50" : ""}`}
             >
               OFFICE
             </button>
@@ -649,7 +647,7 @@ export default function App() {
           >
             <div>
               <div className="flex items-center justify-between border-b border-zinc-900 pb-4 mb-8">
-                <span className="font-sans tracking-wide text-lg font-black text-white">MBA KAPDEWALA</span>
+                <MbaLogo className="h-10 w-auto" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2 text-zinc-400 hover:text-white"
@@ -660,50 +658,50 @@ export default function App() {
 
               <div className="flex flex-col gap-6 text-lg uppercase tracking-widest font-medium">
                 <button
-                  onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Shop Catalog
                 </button>
                 <button
-                  onClick={() => { setSelectedCategory("Men"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setSelectedCategory("Men"); setSelectedStyle("All"); setCurrentTab("shop"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Men Apparel
                 </button>
                 <button
-                  onClick={() => { setSelectedCategory("Women"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setSelectedCategory("Women"); setSelectedStyle("All"); setCurrentTab("shop"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Women Apparel
                 </button>
                 <button
-                  onClick={() => { setSelectedCategory("Kids"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setSelectedCategory("Kids"); setSelectedStyle("All"); setCurrentTab("shop"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Kids Wear
                 </button>
                 <button
-                  onClick={() => setCurrentTab("lookbook")}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setCurrentTab("lookbook"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Runway Lookbook
                 </button>
                 <button
-                  onClick={() => setCurrentTab("blog")}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setCurrentTab("blog"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   Style Journal
                 </button>
                 <button
-                  onClick={() => setCurrentTab("about")}
-                  className="text-left text-white hover:text-amber-500 transition-colors"
+                  onClick={() => { setCurrentTab("about"); setMobileMenuOpen(false); }}
+                  className="text-left text-white hover:text-zinc-400 transition-colors"
                 >
                   About Us
                 </button>
                 <button
-                  onClick={() => setCurrentTab("admin")}
-                  className="text-left text-amber-500 font-mono text-sm tracking-widest"
+                  onClick={() => { setCurrentTab("admin"); setMobileMenuOpen(false); }}
+                  className="text-left text-white font-mono text-sm tracking-widest border border-white/20 px-3 py-1.5 rounded-lg bg-white/5 inline-block w-fit"
                 >
                   [ADMIN BACKOFFICE]
                 </button>
@@ -772,7 +770,7 @@ export default function App() {
               <div className="absolute inset-0 z-0">
                 <img
                   src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1200"
-                  alt="MBA Mens Wear premium traditional clothing presentation"
+                  alt="MBA Kapdewala premium traditional clothing presentation"
                   className="w-full h-full object-cover opacity-70 filter brightness-90 contrast-105"
                   referrerPolicy="no-referrer"
                 />
@@ -781,13 +779,13 @@ export default function App() {
 
               {/* Text Copy content with beautiful motion styling */}
               <div className="relative z-10 max-w-xl space-y-6">
-                <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-500 border border-amber-500/20 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-widest block animate-pulse">
+                <div className="inline-flex items-center gap-2 bg-white/10 text-white border border-white/20 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-widest block animate-pulse">
                   <Sparkles size={12} /> {STORE_CONFIG.taglineHindi}
                 </div>
                 
                 <h2 className="text-4xl sm:text-7xl font-sans tracking-tight leading-none font-black text-white uppercase">
                   {STORE_CONFIG.storeName} <br />
-                  <span className="text-amber-500 text-3xl sm:text-5xl font-sans font-medium lowercase italic block mt-2">
+                  <span className="text-zinc-400 text-3xl sm:text-5xl font-sans font-medium lowercase italic block mt-2">
                     {STORE_CONFIG.tagline}
                   </span>
                 </h2>
@@ -800,7 +798,7 @@ export default function App() {
                   <button
                     id="hero-shop-all-btn"
                     onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                    className="bg-amber-500 hover:bg-amber-400 text-black text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-xl transition-all shadow-xl hover:scale-102 flex items-center gap-2 cursor-pointer"
+                    className="bg-white hover:bg-zinc-200 text-black text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-xl transition-all shadow-xl hover:scale-102 flex items-center gap-2 cursor-pointer"
                   >
                     Explore 300+ Products <ArrowRight size={16} />
                   </button>
@@ -819,9 +817,9 @@ export default function App() {
             {/* SECTION 2: SHOP BY CATEGORY (Aesthetic Bento-style Grid) */}
             <section id="categories-section" className="scroll-mt-20">
               <div className="text-center mb-10">
-                <span className="text-amber-500 text-xs uppercase font-mono tracking-widest font-bold block mb-1">Traditional Divisions</span>
+                <span className="text-white text-xs uppercase font-mono tracking-widest font-bold block mb-1">Traditional Divisions</span>
                 <h3 className="text-2xl sm:text-4xl font-sans tracking-tight font-black">Shop by Premium Category</h3>
-                <div className="h-1 w-16 bg-amber-500 mx-auto mt-3 rounded-full" />
+                <div className="h-1 w-16 bg-white mx-auto mt-3 rounded-full" />
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
@@ -837,7 +835,7 @@ export default function App() {
                   <div
                     key={i}
                     onClick={() => { setSelectedCategory(cat.id); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                    className="relative h-56 rounded-2xl overflow-hidden cursor-pointer group border border-zinc-900 shadow-md hover:border-amber-500/20 transition-all duration-350"
+                    className="relative h-56 rounded-2xl overflow-hidden cursor-pointer group border border-zinc-900 shadow-md hover:border-white/30 transition-all duration-350"
                   >
                     <img
                       src={cat.img}
@@ -846,8 +844,8 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-3">
-                      <span className="text-[9px] font-sans uppercase tracking-wider text-amber-500 font-bold leading-none">{cat.hindi}</span>
-                      <h4 className="text-[11px] sm:text-xs font-bold text-white mt-1.5 leading-snug group-hover:text-amber-400 transition-colors">{cat.label}</h4>
+                      <span className="text-[9px] font-sans uppercase tracking-wider text-zinc-400 font-bold leading-none">{cat.hindi}</span>
+                      <h4 className="text-[11px] sm:text-xs font-bold text-white mt-1.5 leading-snug group-hover:text-zinc-200 transition-colors">{cat.label}</h4>
                     </div>
                   </div>
                 ))}
@@ -857,14 +855,14 @@ export default function App() {
             {/* SECTION 13: FLASH SALE (Timer, Countdown & stock percentage) */}
             <section
               id="flash-sale-section"
-              className="bg-gradient-to-r from-amber-950/40 via-zinc-950 to-orange-950/20 border border-amber-500/20 p-6 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden"
+              className="bg-zinc-950 border border-zinc-900 p-6 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
               
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 z-10 relative">
                 <div className="space-y-4 max-w-xl">
-                  <div className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-400 text-xs font-mono tracking-widest uppercase px-3 py-1 rounded-md border border-amber-500/30 font-bold">
-                    <span className="h-2 w-2 rounded-full bg-amber-500 animate-ping inline-block" /> Live Flash Sale
+                  <div className="inline-flex items-center gap-1.5 bg-white/15 text-white text-xs font-mono tracking-widest uppercase px-3 py-1 rounded-md border border-white/20 font-bold">
+                    <span className="h-2 w-2 rounded-full bg-white animate-ping inline-block" /> Live Flash Sale
                   </div>
                   <h4 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none">MALWA HERITAGE SHOPPING FESTIVAL</h4>
                   <p className="text-xs sm:text-sm text-zinc-300 font-light">
@@ -874,23 +872,23 @@ export default function App() {
                   {/* Stock Tracker Progress Bar */}
                   <div className="space-y-2 max-w-md pt-2">
                     <div className="flex justify-between text-xs font-mono font-medium text-zinc-400">
-                      <span>Showroom stock left: <span className="text-amber-500 font-bold">14% remaining</span></span>
+                      <span>Showroom stock left: <span className="text-white font-bold">14% remaining</span></span>
                       <span>86% Claimed</span>
                     </div>
                     <div className="h-2 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-850">
-                      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full w-[86%] animate-pulse" />
+                      <div className="h-full bg-white rounded-full w-[86%] animate-pulse" />
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center lg:items-end justify-center gap-4 bg-zinc-950/80 border border-zinc-850 p-6 rounded-2xl text-center lg:text-right shadow-lg w-full lg:w-auto">
+                <div className="flex flex-col items-center lg:items-end justify-center gap-4 bg-zinc-900/80 border border-zinc-800 p-6 rounded-2xl text-center lg:text-right shadow-lg w-full lg:w-auto">
                   <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono font-bold block">Offer Expires In</span>
-                  <div className="text-4xl sm:text-5xl font-mono font-black text-amber-500 tracking-wider">
+                  <div className="text-4xl sm:text-5xl font-mono font-black text-white tracking-wider">
                     {formatCountdown(secondsLeft)}
                   </div>
                   <button
                     onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setSearchQuery(""); setPriceRange(15000); setCurrentTab("shop"); }}
-                    className="w-full bg-amber-500 hover:bg-amber-400 text-black text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-md hover:scale-102 mt-2"
+                    className="w-full bg-white hover:bg-zinc-200 text-black text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-md hover:scale-102 mt-2"
                   >
                     Shop Flash Sale Collection
                   </button>
@@ -906,12 +904,12 @@ export default function App() {
             <section id="trending-products" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Top Hot Styles</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Top Hot Styles</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Trending Collection</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All <ChevronRight size={14} />
                 </button>
@@ -925,12 +923,12 @@ export default function App() {
             <section id="new-arrivals" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Recently Unveiled</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Recently Unveiled</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">New Arrivals</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All <ChevronRight size={14} />
                 </button>
@@ -944,12 +942,12 @@ export default function App() {
             <section id="best-sellers" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Maximum Rating</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Maximum Rating</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Bestselling Garments</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("All"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All <ChevronRight size={14} />
                 </button>
@@ -963,12 +961,12 @@ export default function App() {
             <section id="festival-collection" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Utsav Special</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Utsav Special</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Festival Collection</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Kurta Pyjama"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All Kurtas <ChevronRight size={14} />
                 </button>
@@ -982,12 +980,12 @@ export default function App() {
             <section id="wedding-collection" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Royal Groom Wear</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Royal Groom Wear</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Wedding Collection</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Sherwani & Indo-Western"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All Sherwanis <ChevronRight size={14} />
                 </button>
@@ -1001,12 +999,12 @@ export default function App() {
             <section id="office-wear" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Corporate Premium</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Corporate Premium</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Executive Office Wear</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Suits & Blazers"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View Suits & Blazers <ChevronRight size={14} />
                 </button>
@@ -1020,12 +1018,12 @@ export default function App() {
             <section id="season-collection" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Linen & Breathable Cotton</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Linen & Breathable Cotton</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Season Collections</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Shirts & T-shirts"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View All Shirts <ChevronRight size={14} />
                 </button>
@@ -1039,12 +1037,12 @@ export default function App() {
             <section id="accessories-collection" className="space-y-6">
               <div className="flex justify-between items-end border-b border-zinc-900 pb-4">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Traditional Footwear & Turbans</span>
+                  <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Traditional Footwear & Turbans</span>
                   <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Accessories</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Accessories"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="text-xs text-zinc-400 hover:text-amber-500 font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
+                  className="text-xs text-zinc-400 hover:text-white font-bold tracking-wide flex items-center gap-1 transition-colors uppercase font-mono"
                 >
                   View Accessories <ChevronRight size={14} />
                 </button>
@@ -1056,9 +1054,9 @@ export default function App() {
 
             {/* SECTION 11: FEATURED PRODUCTS */}
             <section id="featured-products" className="bg-gradient-to-br from-zinc-950 via-zinc-900 to-black border border-zinc-850 p-6 sm:p-12 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-xl">
-              <div className="absolute top-0 left-0 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
               <div className="flex-1 space-y-5">
-                <span className="text-xs text-amber-500 font-mono font-bold uppercase tracking-widest block">Signature Masterpiece</span>
+                <span className="text-xs text-white font-mono font-bold uppercase tracking-widest block">Signature Masterpiece</span>
                 <h4 className="text-3xl sm:text-5xl font-black uppercase text-white leading-none">Maharaja Groom Sherwani Series</h4>
                 <p className="text-xs sm:text-base text-zinc-300 font-light leading-relaxed">
                   Stitched by regional MP master weavers, this heritage collection features pure Banarasi raw silk with solid velvet patches and heavy zardozi embroidery. Each sherwani comes with pre-stitched churidar, safa fabric, and royal dupatta. Give your wedding look the shahi heritage it deserves.
@@ -1075,7 +1073,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => { setSelectedCategory("Sherwani & Indo-Western"); setSelectedStyle("All"); setCurrentTab("shop"); }}
-                  className="bg-amber-500 hover:bg-amber-400 text-black text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-xl transition-all shadow-lg inline-flex items-center gap-2"
+                  className="bg-white hover:bg-zinc-200 text-black text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-xl transition-all shadow-lg inline-flex items-center gap-2"
                 >
                   View Royal Grooms Wear <Sparkles size={14} />
                 </button>
@@ -1094,7 +1092,7 @@ export default function App() {
             {/* SECTION 12: RECENTLY VIEWED (Dynamic Session Slider) */}
             <section id="recently-viewed" className="space-y-6">
               <div className="border-b border-zinc-900 pb-4">
-                <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Your Interest</span>
+                <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Your Interest</span>
                 <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black uppercase text-white">Recently Viewed</h3>
               </div>
               
@@ -1129,22 +1127,22 @@ export default function App() {
             {/* SECTION 14: NEWSLETTER SUBSCRIPTION (Unlock ₹500 Discount Code) */}
             <section
               id="newsletter-section"
-              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6 sm:p-12 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden"
+              className="bg-gradient-to-r from-zinc-900 via-black to-zinc-950 text-white border border-zinc-850 p-6 sm:p-12 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden"
             >
               <div className="space-y-3 max-w-lg">
-                <span className="text-[10px] font-mono tracking-widest uppercase bg-white/25 text-white px-2.5 py-1 rounded font-bold">JOIN THE MBA SHOWROOM CLUB</span>
+                <span className="text-[10px] font-mono tracking-widest uppercase bg-white/10 text-white px-2.5 py-1 rounded font-bold border border-white/20">JOIN THE MBA SHOWROOM CLUB</span>
                 <h4 className="text-2xl sm:text-4xl font-black tracking-tight leading-none text-white">GET INSTANT ₹500 CASH DISCOUNT!</h4>
-                <p className="text-xs sm:text-sm text-amber-50 leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                   Subscribe to our official MP Showroom newsletters to unlock the <span className="underline font-bold">WELCOME500</span> discount code instantly and receive royal style updates.
                 </p>
               </div>
 
               <div className="w-full md:w-auto flex-shrink-0">
                 {newsSuccess ? (
-                  <div className="bg-zinc-950/90 text-white border border-amber-400 p-5 rounded-2xl space-y-2 text-center max-w-sm">
-                    <span className="text-xs text-amber-400 font-mono font-bold block uppercase tracking-wider">🎉 Subscription Successful!</span>
+                  <div className="bg-zinc-950/90 text-white border border-white/20 p-5 rounded-2xl space-y-2 text-center max-w-sm">
+                    <span className="text-xs text-white font-mono font-bold block uppercase tracking-wider">🎉 Subscription Successful!</span>
                     <p className="text-[11px] text-zinc-300">Use promo code below at checkout for flat ₹500 off:</p>
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-2 font-mono text-base font-black text-amber-500 tracking-widest select-all">
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-2 font-mono text-base font-black text-white tracking-widest select-all">
                       WELCOME500
                     </div>
                   </div>
@@ -1159,11 +1157,11 @@ export default function App() {
                       value={newsEmail}
                       onChange={e => setNewsEmail(e.target.value)}
                       placeholder="Your Email Address..."
-                      className="bg-white/10 placeholder-amber-100 border border-white/20 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-white focus:bg-white/20 text-white w-full sm:w-64"
+                      className="bg-white/5 placeholder-zinc-500 border border-white/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-white focus:bg-white/10 text-white w-full sm:w-64"
                     />
                     <button
                       type="submit"
-                      className="bg-white text-black hover:bg-zinc-950 hover:text-white transition-colors text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl flex-shrink-0"
+                      className="bg-white text-black hover:bg-zinc-200 transition-colors text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl flex-shrink-0"
                     >
                       Subscribe & Unlock
                     </button>
@@ -1175,9 +1173,9 @@ export default function App() {
             {/* SECTION 15: CLIENT TESTIMONIALS (Regional Feedbacks) */}
             <section id="reviews-section" className="border-t border-zinc-900 pt-12 space-y-8">
               <div className="text-center">
-                <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Our Customer Voice</span>
+                <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Our Customer Voice</span>
                 <h3 className="text-2xl sm:text-4xl font-sans tracking-tight font-black uppercase mt-1">Showroom Client Testimonials</h3>
-                <div className="h-1 w-12 bg-amber-500 mx-auto mt-2 rounded-full" />
+                <div className="h-1 w-12 bg-white mx-auto mt-2 rounded-full" />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1186,11 +1184,11 @@ export default function App() {
                   { name: "Rahul Patidar (Vijay Nagar, Indore)", comment: "Excellent groom collection. The raw Banarasi silk feels extremely rich. Superfast home delivery in Indore with protective packing.", rating: 5, date: "1 week ago" },
                   { name: "Rajesh Bundela (Jabalpur)", comment: "Ordered a custom koti jacket and formal Giza cotton shirt. The tailors called me to verify measurements. Truly professional service!", rating: 5, date: "5 days ago" }
                 ].map((rev, i) => (
-                  <div key={i} className="bg-zinc-950 border border-zinc-900 p-6 rounded-2xl flex flex-col justify-between hover:border-amber-500/10 transition-colors">
+                  <div key={i} className="bg-zinc-950 border border-zinc-900 p-6 rounded-2xl flex flex-col justify-between hover:border-white/10 transition-colors">
                     <div className="space-y-3">
                       <div className="flex gap-0.5">
                         {Array.from({ length: rev.rating }).map((_, rIdx) => (
-                          <Star key={rIdx} size={11} className="fill-amber-500 text-amber-500" />
+                          <Star key={rIdx} size={11} className="fill-white text-white" />
                         ))}
                       </div>
                       <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed italic">
@@ -1209,14 +1207,14 @@ export default function App() {
             {/* SECTION 16: FAQ ACCORDION (Interactive Regional FAQ) */}
             <section id="homepage-faq" className="border-t border-zinc-900 pt-12 space-y-8 max-w-4xl mx-auto">
               <div className="text-center">
-                <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Help & Support</span>
+                <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Help & Support</span>
                 <h3 className="text-2xl sm:text-4xl font-sans tracking-tight font-black uppercase mt-1">Frequently Asked Questions</h3>
                 <p className="text-xs text-zinc-400 mt-2">Find quick answers about custom fitting, showroom coordinates, and shipping speeds.</p>
               </div>
 
               <div className="space-y-3">
                 {[
-                  { q: "Where are MBA Mens Wear showrooms located?", a: "We have two premium, spacious physical showrooms in Madhya Pradesh: Bhopal Showroom at Zone-II, M.P. Nagar (Near Jyoti Talkies) and Indore Showroom at MG Road (Opposite Treasure Island Mall). You can visit any showroom for live fabric selection and professional measurements." },
+                  { q: "Where are MBA Kapdewala showrooms located?", a: "We have two premium, spacious physical showrooms in Madhya Pradesh: Bhopal Showroom at Zone-II, M.P. Nagar (Near Jyoti Talkies) and Indore Showroom at MG Road (Opposite Treasure Island Mall). You can visit any showroom for live fabric selection and professional measurements." },
                   { q: "Do you provide custom tailoring and size adjustment?", a: "Yes, absolutely! Once you place an order or select a garment, our expert showroom masters can customize the sleeve lengths, chest fits, and trouser bottoms for you. You can call or WhatsApp our helpline at +91 98260 98260 with your order ID." },
                   { q: "How many days does shipping take in Madhya Pradesh?", a: "For Bhopal, Indore, Jabalpur, Gwalior, and Ujjain coordinates, we provide express shipping within 24 to 48 working hours. For other locations across India, delivery takes safely between 2-4 working days in fully-secured protective eco-friendly MBA boxes." },
                   { q: "Is Cash on Delivery (COD) and easy exchange available?", a: "Yes, we support Cash on Delivery all over India. We also offer a hassle-free 15-day return and exchange policy. If the size is not perfect, we will arrange a free reverse pickup from your home." }
@@ -1226,10 +1224,10 @@ export default function App() {
                     <div key={index} className="border border-zinc-900 rounded-2xl overflow-hidden bg-zinc-950/45">
                       <button
                         onClick={() => setFaqOpenIndex(isOpen ? null : index)}
-                        className="w-full flex justify-between items-center p-5 text-left text-xs sm:text-sm font-semibold text-white hover:text-amber-500 transition-colors"
+                        className="w-full flex justify-between items-center p-5 text-left text-xs sm:text-sm font-semibold text-white hover:text-white transition-colors"
                       >
                         <span>{faq.q}</span>
-                        <span className="text-amber-500 font-mono text-lg font-black">{isOpen ? "−" : "+"}</span>
+                        <span className="text-white font-mono text-lg font-black">{isOpen ? "−" : "+"}</span>
                       </button>
                       
                       {isOpen && (
@@ -1246,7 +1244,7 @@ export default function App() {
             {/* SECTION 17: CONTACT & SHOWROOM LOCATIONS */}
             <section id="homepage-contact" className="border-t border-zinc-900 pt-12 space-y-8">
               <div className="text-center">
-                <span className="text-amber-500 text-xs uppercase font-mono tracking-widest block font-bold">Visit Us Today</span>
+                <span className="text-white text-xs uppercase font-mono tracking-widest block font-bold">Visit Us Today</span>
                 <h3 className="text-2xl sm:text-4xl font-sans tracking-tight font-black uppercase mt-1">Our Showroom Locations</h3>
                 <p className="text-xs text-zinc-400 mt-2">Our physical stores are completely equipped with premium fabric catalogs and measurement masters.</p>
               </div>
@@ -1254,26 +1252,26 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {STORE_CONFIG.showrooms.map((showroom, i) => (
                   <div key={i} className="bg-zinc-950 border border-zinc-900 p-6 rounded-3xl space-y-5 relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 bg-amber-500/10 text-amber-500 font-mono text-xs font-bold px-4 py-1.5 rounded-bl-xl border-l border-b border-zinc-900">
+                    <div className="absolute top-0 right-0 bg-white/10 text-white font-mono text-xs font-bold px-4 py-1.5 rounded-bl-xl border-l border-b border-zinc-900">
                       Showroom Open
                     </div>
                     
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-amber-500 font-bold block">{showroom.city} Branch</span>
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-white font-bold block">{showroom.city} Branch</span>
                       <h4 className="text-xl font-bold text-white">{STORE_CONFIG.storeName} - {showroom.city}</h4>
                     </div>
 
                     <div className="space-y-3.5 text-xs text-zinc-400">
                       <div className="flex items-start gap-2.5">
-                        <MapPin size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
+                        <MapPin size={16} className="text-white flex-shrink-0 mt-0.5" />
                         <span>{showroom.address}</span>
                       </div>
                       <div className="flex items-center gap-2.5">
-                        <HelpCircle size={16} className="text-amber-500 flex-shrink-0" />
+                        <HelpCircle size={16} className="text-white flex-shrink-0" />
                         <span>{showroom.timing}</span>
                       </div>
                       <div className="flex items-center gap-2.5">
-                        <User size={16} className="text-amber-500 flex-shrink-0" />
+                        <User size={16} className="text-white flex-shrink-0" />
                         <span>Showroom Helpline: <span className="text-white font-bold">{STORE_CONFIG.phoneNumber}</span></span>
                       </div>
                     </div>
@@ -1311,7 +1309,7 @@ export default function App() {
               <aside className="w-full md:w-64 space-y-6 flex-shrink-0">
                 <div className="flex items-center justify-between border-b border-zinc-900 pb-3">
                   <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-white flex items-center gap-1.5">
-                    <SlidersHorizontal size={14} className="text-amber-500" /> Filter Selection
+                    <SlidersHorizontal size={14} className="text-white" /> Filter Selection
                   </h3>
                   <button
                     onClick={() => {
@@ -1323,7 +1321,7 @@ export default function App() {
                       setSelectedBrand("All");
                       setSearchQuery("");
                     }}
-                    className="text-[10px] text-zinc-500 hover:text-amber-500 font-mono uppercase tracking-wider transition-colors"
+                    className="text-[10px] text-zinc-500 hover:text-white font-mono uppercase tracking-wider transition-colors"
                   >
                     Reset
                   </button>
@@ -1337,7 +1335,7 @@ export default function App() {
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
                     placeholder="Search fabric, style, code..."
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2 text-xs text-white placeholder-zinc-600 focus:outline-none"
+                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-white/40 rounded-lg p-2 text-xs text-white placeholder-zinc-600 focus:outline-none"
                   />
                 </div>
 
@@ -1350,7 +1348,7 @@ export default function App() {
                       onClick={() => setSelectedCategory(cat)}
                       className={`w-full text-left text-xs px-2.5 py-1.5 rounded transition-all ${
                         selectedCategory === cat 
-                          ? "bg-amber-500 text-black font-semibold" 
+                          ? "bg-white text-black font-semibold" 
                           : "text-zinc-400 hover:text-white hover:bg-zinc-900/40"
                       }`}
                     >
@@ -1363,7 +1361,7 @@ export default function App() {
                 <div>
                   <div className="flex justify-between text-[10px] uppercase font-mono tracking-wider text-zinc-500 mb-2">
                     <span>Max Price</span>
-                    <span className="text-amber-500 font-bold">{formatPrice(priceRange)}</span>
+                    <span className="text-white font-bold">{formatPrice(priceRange)}</span>
                   </div>
                   <input
                     type="range"
@@ -1372,7 +1370,7 @@ export default function App() {
                     step="200"
                     value={priceRange}
                     onChange={e => setPriceRange(Number(e.target.value))}
-                    className="w-full accent-amber-500 h-1 bg-zinc-800 rounded-lg appearance-none"
+                    className="w-full accent-white h-1 bg-zinc-800 rounded-lg appearance-none"
                   />
                 </div>
 
@@ -1386,7 +1384,7 @@ export default function App() {
                         onClick={() => setSelectedColor(col)}
                         className={`text-[10px] font-mono px-2 py-1 rounded-md border transition-all ${
                           selectedColor === col
-                            ? "bg-zinc-900 text-amber-500 border-amber-500/40 font-bold"
+                            ? "bg-zinc-900 text-white border-white/20 font-bold"
                             : "bg-zinc-950 text-zinc-400 border-zinc-900 hover:text-white hover:border-zinc-800"
                         }`}
                       >
@@ -1406,7 +1404,7 @@ export default function App() {
                         onClick={() => setSelectedSize(sz)}
                         className={`text-[10px] font-mono py-1 rounded border transition-all ${
                           selectedSize === sz
-                            ? "bg-amber-500 text-black border-amber-500 font-bold"
+                            ? "bg-white text-black border-white font-bold"
                             : "bg-zinc-950 text-zinc-400 border-zinc-900 hover:text-white"
                         }`}
                       >
@@ -1422,7 +1420,7 @@ export default function App() {
                   <select
                     value={selectedBrand}
                     onChange={e => setSelectedBrand(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-500/50 text-xs rounded-lg p-2 text-white focus:outline-none"
+                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-white/40 text-xs rounded-lg p-2 text-white focus:outline-none"
                   >
                     <option value="All">All Designer Labels</option>
                     {filterOptions.brands.map(br => (
@@ -1439,7 +1437,7 @@ export default function App() {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-zinc-950 border border-zinc-900 p-4 rounded-xl gap-3">
                   <div className="text-xs text-zinc-400">
                     Showing <span className="font-bold text-white">{filteredProducts.length}</span> high-quality garments
-                    {selectedCategory !== "All" && <span> under <span className="text-amber-500 font-sans font-bold uppercase">{selectedCategory}</span></span>}
+                    {selectedCategory !== "All" && <span> under <span className="text-white font-sans font-bold uppercase">{selectedCategory}</span></span>}
                   </div>
                   
                   <div className="flex items-center gap-2 text-xs">
@@ -1447,7 +1445,7 @@ export default function App() {
                     <select
                       value={sortBy}
                       onChange={e => setSortBy(e.target.value)}
-                      className="bg-zinc-900 border border-zinc-800 text-zinc-300 rounded p-1 text-[11px] focus:outline-none focus:border-amber-500/50"
+                      className="bg-zinc-900 border border-zinc-800 text-zinc-300 rounded p-1 text-[11px] focus:outline-none focus:border-white/40"
                     >
                       <option value="popular">Popularity</option>
                       <option value="price-low">Price: Low to High</option>
@@ -1470,7 +1468,7 @@ export default function App() {
                     {filteredProducts.slice(0, 24).map((prod) => (
                       <div
                         key={prod.id}
-                        className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all flex flex-col justify-between"
+                        className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-white/30 transition-all flex flex-col justify-between"
                       >
                         <div className="relative overflow-hidden aspect-square cursor-pointer" onClick={() => navigateToProduct(prod.id)}>
                           <img
@@ -1480,15 +1478,15 @@ export default function App() {
                             referrerPolicy="no-referrer"
                           />
                           {prod.discount > 0 && (
-                            <span className="absolute top-3 left-3 bg-amber-500 text-black text-[9px] font-bold uppercase tracking-wider font-mono px-2 py-0.5 rounded shadow-md">
+                            <span className="absolute top-3 left-3 bg-white text-black text-[9px] font-bold uppercase tracking-wider font-mono px-2 py-0.5 rounded shadow-md">
                               -{prod.discount}% LUX
                             </span>
                           )}
                           <button
                             onClick={(e) => { e.stopPropagation(); toggleWishlist(prod.id); }}
-                            className="absolute top-3 right-3 p-1.5 rounded-full bg-black/75 hover:bg-black text-zinc-400 hover:text-amber-500 border border-zinc-900/60 backdrop-blur-sm transition-all"
+                            className="absolute top-3 right-3 p-1.5 rounded-full bg-black/75 hover:bg-black text-zinc-400 hover:text-white border border-zinc-900/60 backdrop-blur-sm transition-all"
                           >
-                            <Heart size={14} className={wishlist.includes(prod.id) ? "fill-amber-500 text-amber-500" : ""} />
+                            <Heart size={14} className={wishlist.includes(prod.id) ? "fill-white text-white" : ""} />
                           </button>
                         </div>
 
@@ -1497,25 +1495,25 @@ export default function App() {
                             <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono font-medium block mb-1">
                               {prod.category} • {prod.brand}
                             </span>
-                            <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-amber-500 transition-colors text-white leading-snug">
+                            <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-zinc-200 transition-colors text-white leading-snug">
                               {prod.name}
                             </h4>
                             <div className="flex items-center gap-1 mt-1.5">
-                              <Star size={10} className="fill-amber-500 text-amber-500" />
+                              <Star size={10} className="fill-white text-white" />
                               <span className="text-[10px] font-mono text-zinc-400 font-bold">{prod.rating}</span>
                             </div>
                           </div>
 
                           <div className="mt-4 flex items-center justify-between border-t border-zinc-900 pt-3">
                             <div className="flex items-baseline gap-1.5">
-                              <span className="text-sm font-bold text-amber-500 font-mono">{formatPrice(prod.price)}</span>
+                              <span className="text-sm font-bold text-white font-mono">{formatPrice(prod.price)}</span>
                               {prod.discount > 0 && (
                                 <span className="text-[10px] text-zinc-600 line-through font-mono">{formatPrice(prod.mrp)}</span>
                               )}
                             </div>
                             <button
                               onClick={() => handleAddToCart(prod, prod.sizes[0], prod.colors[0], 1)}
-                              className="bg-zinc-900 hover:bg-amber-500 text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded transition-colors"
+                              className="bg-zinc-900 hover:bg-white text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded transition-colors"
                             >
                               + Add
                             </button>
@@ -1536,7 +1534,7 @@ export default function App() {
           <div className="space-y-12">
             <button
               onClick={() => setCurrentTab("shop")}
-              className="text-xs text-zinc-400 hover:text-amber-500 flex items-center gap-1 transition-colors font-mono uppercase tracking-wider"
+              className="text-xs text-zinc-400 hover:text-white flex items-center gap-1 transition-colors font-mono uppercase tracking-wider"
             >
               ← Back to Collection
             </button>
@@ -1553,7 +1551,7 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                   {activeProduct.discount > 0 && (
-                    <span className="absolute top-4 left-4 bg-amber-500 text-black text-[10px] font-bold uppercase tracking-wider font-mono px-2.5 py-1 rounded shadow-lg">
+                    <span className="absolute top-4 left-4 bg-white text-black text-[10px] font-bold uppercase tracking-wider font-mono px-2.5 py-1 rounded shadow-lg">
                       {activeProduct.discount}% discount
                     </span>
                   )}
@@ -1566,7 +1564,7 @@ export default function App() {
                       key={i}
                       onClick={() => setDetailImageIdx(i)}
                       className={`h-20 w-20 rounded-lg overflow-hidden flex-shrink-0 border transition-all ${
-                        detailImageIdx === i ? "border-amber-500 scale-102" : "border-zinc-800/80 hover:border-zinc-500"
+                        detailImageIdx === i ? "border-white scale-102" : "border-zinc-800/80 hover:border-zinc-500"
                       }`}
                     >
                       <img src={img} alt="Detail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -1578,7 +1576,7 @@ export default function App() {
               {/* Specs & buying selectors */}
               <div className="space-y-6">
                 <div>
-                  <span className="text-amber-500 font-mono text-xs uppercase tracking-widest font-semibold">
+                  <span className="text-zinc-400 font-mono text-xs uppercase tracking-widest font-semibold">
                     {activeProduct.brand} • {activeProduct.subCategory}
                   </span>
                   <h1 className="text-2xl sm:text-4xl font-sans tracking-tight font-medium text-white mt-1.5 leading-snug">
@@ -1590,7 +1588,7 @@ export default function App() {
                   <div className="flex items-center gap-1.5 mt-2.5">
                     <div className="flex gap-0.5">
                       {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} size={13} className={i < Math.floor(activeProduct.rating) ? "fill-amber-500 text-amber-500" : "text-zinc-700"} />
+                        <Star key={i} size={13} className={i < Math.floor(activeProduct.rating) ? "fill-white text-white" : "text-zinc-700"} />
                       ))}
                     </div>
                     <span className="text-xs text-zinc-400 font-mono font-semibold">({activeProduct.rating} / 5.0 rating)</span>
@@ -1599,7 +1597,7 @@ export default function App() {
 
                 {/* Pricing row */}
                 <div className="flex items-baseline gap-3 pb-4 border-b border-zinc-900">
-                  <span className="text-3xl font-bold text-amber-500 font-mono">{formatPrice(activeProduct.price)}</span>
+                  <span className="text-3xl font-bold text-white font-mono">{formatPrice(activeProduct.price)}</span>
                   {activeProduct.discount > 0 && (
                     <>
                       <span className="text-zinc-500 line-through text-base font-mono">{formatPrice(activeProduct.mrp)}</span>
@@ -1625,7 +1623,7 @@ export default function App() {
                           onClick={() => setDetailColor(col)}
                           className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
                             detailColor === col
-                              ? "bg-amber-500 text-black border-amber-500 font-semibold"
+                              ? "bg-white text-black border-white font-semibold"
                               : "bg-zinc-950 text-zinc-300 border-zinc-800 hover:border-zinc-500"
                           }`}
                         >
@@ -1641,7 +1639,7 @@ export default function App() {
                       <label className="block text-[10px] uppercase font-mono tracking-wider text-zinc-500">Tailor Dimension</label>
                       <button
                         onClick={() => { setSizeGuideCategory(activeProduct.category); setIsSizeGuideOpen(true); }}
-                        className="text-[10px] text-amber-500 hover:underline font-mono uppercase tracking-wider"
+                        className="text-[10px] text-white hover:underline font-mono uppercase tracking-wider"
                       >
                         Size Guide
                       </button>
@@ -1670,14 +1668,14 @@ export default function App() {
                       <div className="flex items-center bg-zinc-950 border border-zinc-850 rounded-lg">
                         <button
                           onClick={() => setDetailQty(prev => Math.max(1, prev - 1))}
-                          className="p-2 hover:text-amber-500 transition-colors"
+                          className="p-2 hover:text-white transition-colors"
                         >
                           <Minus size={14} />
                         </button>
                         <span className="w-12 text-center text-xs font-mono font-bold">{detailQty}</span>
                         <button
                           onClick={() => setDetailQty(prev => Math.min(activeProduct.stock, prev + 1))}
-                          className="p-2 hover:text-amber-500 transition-colors"
+                          className="p-2 hover:text-white transition-colors"
                         >
                           <Plus size={14} />
                         </button>
@@ -1693,7 +1691,7 @@ export default function App() {
                   <div className="flex gap-3 pt-4">
                     <button
                       onClick={() => handleAddToCart(activeProduct, detailSize, detailColor, detailQty)}
-                      className="flex-1 bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors shadow-xl"
+                      className="flex-1 bg-white hover:bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors shadow-xl"
                     >
                       Add to Bag
                     </button>
@@ -1702,12 +1700,12 @@ export default function App() {
                       className="p-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors border border-zinc-850"
                       title="Add to Wishlist"
                     >
-                      <Heart size={16} className={wishlist.includes(activeProduct.id) ? "fill-amber-500 text-amber-500" : ""} />
+                      <Heart size={16} className={wishlist.includes(activeProduct.id) ? "fill-white text-white" : ""} />
                     </button>
                   </div>
 
                   {detailMessage && (
-                    <p className="text-xs font-semibold text-amber-500 mt-2 text-center animate-pulse">{detailMessage}</p>
+                    <p className="text-xs font-semibold text-zinc-400 mt-2 text-center animate-pulse">{detailMessage}</p>
                   )}
                 </div>
 
@@ -1744,7 +1742,7 @@ export default function App() {
                         <span className="text-xs font-semibold text-white block">{rev.userName}</span>
                         <div className="flex gap-0.5 mt-0.5">
                           {Array.from({ length: rev.rating }).map((_, i) => (
-                            <Star key={i} size={10} className="fill-amber-500 text-amber-500" />
+                            <Star key={i} size={10} className="fill-white text-white" />
                           ))}
                         </div>
                       </div>
@@ -1770,13 +1768,13 @@ export default function App() {
                     <div
                       key={rec.id}
                       onClick={() => navigateToProduct(rec.id)}
-                      className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 rounded-xl overflow-hidden p-3 hover:border-amber-500/20 transition-all text-xs"
+                      className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 rounded-xl overflow-hidden p-3 hover:border-white/30 transition-all text-xs"
                     >
                       <div className="aspect-square rounded-lg overflow-hidden mb-2.5">
                         <img src={rec.images[0]} alt={rec.name} className="w-full h-full object-cover group-hover:scale-103 transition-transform" />
                       </div>
-                      <h4 className="font-semibold line-clamp-1 group-hover:text-amber-500 transition-colors text-white">{rec.name}</h4>
-                      <span className="font-mono text-amber-500 font-bold mt-1 block">{formatPrice(rec.price)}</span>
+                      <h4 className="font-semibold line-clamp-1 group-hover:text-zinc-200 transition-colors text-white">{rec.name}</h4>
+                      <span className="font-mono text-white font-bold mt-1 block">{formatPrice(rec.price)}</span>
                     </div>
                   ))}
               </div>
@@ -1797,7 +1795,7 @@ export default function App() {
                 <p className="text-xs text-zinc-500 max-w-xs mx-auto mt-1 mb-6">Explore our premium Indian menswear collections to find your perfect style.</p>
                 <button
                   onClick={() => setCurrentTab("shop")}
-                  className="bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-colors"
+                  className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-colors"
                 >
                   Return to Shop
                 </button>
@@ -1817,13 +1815,13 @@ export default function App() {
                           <img src={item.product.images[0]} alt={item.product.name} className="h-full w-full object-cover" />
                         </div>
                         <div>
-                          <h4 className="text-xs font-semibold text-white hover:text-amber-500 transition-colors cursor-pointer" onClick={() => navigateToProduct(item.product.id)}>
+                          <h4 className="text-xs font-semibold text-white hover:text-zinc-200 transition-colors cursor-pointer" onClick={() => navigateToProduct(item.product.id)}>
                             {item.product.name}
                           </h4>
                           <p className="text-[10px] text-zinc-500 font-mono uppercase mt-0.5">
                             SIZE: {item.selectedSize} • COLOR: {item.selectedColor}
                           </p>
-                          <span className="text-xs font-bold font-mono text-amber-500 block mt-1.5">{formatPrice(item.product.price)}</span>
+                          <span className="text-xs font-bold font-mono text-white block mt-1.5">{formatPrice(item.product.price)}</span>
                         </div>
                       </div>
 
@@ -1870,11 +1868,11 @@ export default function App() {
                         value={couponInput}
                         onChange={e => setCouponInput(e.target.value)}
                         placeholder="e.g. WELCOME50"
-                        className="flex-1 bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2 text-xs uppercase font-mono text-white placeholder-zinc-700 focus:outline-none"
+                        className="flex-1 bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2 text-xs uppercase font-mono text-white placeholder-zinc-700 focus:outline-none"
                       />
                       <button
                         type="submit"
-                        className="bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 hover:text-amber-500 text-xs font-semibold px-3.5 rounded-lg transition-all"
+                        className="bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 hover:text-white text-xs font-semibold px-3.5 rounded-lg transition-all"
                       >
                         Apply
                       </button>
@@ -1882,7 +1880,7 @@ export default function App() {
                     {couponError && <p className="text-[10px] text-zinc-500 font-mono">{couponError}</p>}
                     
                     {activeCoupon && (
-                      <div className="flex items-center justify-between bg-amber-500/5 border border-amber-500/20 rounded p-2 text-[10px] font-mono text-amber-500">
+                      <div className="flex items-center justify-between bg-white/5 border border-white/20 rounded p-2 text-[10px] font-mono text-white">
                         <span>COUPON APPLIED: {activeCoupon.code}</span>
                         <button type="button" onClick={handleRemoveCoupon} className="text-zinc-400 hover:text-white"><X size={10} /></button>
                       </div>
@@ -1896,7 +1894,7 @@ export default function App() {
                       <span className="text-white font-medium">{formatPrice(subtotal)}</span>
                     </div>
                     {discountAmount > 0 && (
-                      <div className="flex justify-between text-amber-500 font-bold">
+                      <div className="flex justify-between text-zinc-300 font-bold">
                         <span>Coupon Discount</span>
                         <span>-{formatPrice(discountAmount)}</span>
                       </div>
@@ -1913,13 +1911,13 @@ export default function App() {
                     </div>
                     <div className="flex justify-between text-sm font-bold text-white pt-2 border-t border-zinc-900 font-sans">
                       <span>Total Amount</span>
-                      <span className="text-amber-500 font-mono text-base">{formatPrice(totalCartAmount)}</span>
+                      <span className="text-white font-mono text-base">{formatPrice(totalCartAmount)}</span>
                     </div>
                   </div>
 
                   <button
                     onClick={() => setCurrentTab("checkout")}
-                    className="w-full bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-xl"
+                    className="w-full bg-white hover:bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-xl"
                   >
                     Proceed to Checkout <ArrowRight size={13} />
                   </button>
@@ -1942,7 +1940,7 @@ export default function App() {
                 
                 {/* Shipping address details */}
                 <div className="space-y-4">
-                  <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-amber-500 border-b border-zinc-900 pb-2">Shipping Address</h3>
+                  <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-white border-b border-zinc-900 pb-2">Shipping Address</h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -1953,7 +1951,7 @@ export default function App() {
                         value={shippingAddress.fullName}
                         onChange={e => setShippingAddress({ ...shippingAddress, fullName: e.target.value })}
                         placeholder="e.g. Marcus Vance"
-                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -1964,7 +1962,7 @@ export default function App() {
                         value={shippingAddress.phone}
                         onChange={e => setShippingAddress({ ...shippingAddress, phone: e.target.value })}
                         placeholder="e.g. +1 415 901 0212"
-                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -1977,7 +1975,7 @@ export default function App() {
                       value={shippingAddress.street}
                       onChange={e => setShippingAddress({ ...shippingAddress, street: e.target.value })}
                       placeholder="e.g. Corso Vittorio Emanuele II, 14"
-                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                     />
                   </div>
 
@@ -1990,7 +1988,7 @@ export default function App() {
                         value={shippingAddress.city}
                         onChange={e => setShippingAddress({ ...shippingAddress, city: e.target.value })}
                         placeholder="e.g. San Francisco"
-                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -2001,7 +1999,7 @@ export default function App() {
                         value={shippingAddress.state}
                         onChange={e => setShippingAddress({ ...shippingAddress, state: e.target.value })}
                         placeholder="e.g. CA"
-                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -2012,7 +2010,7 @@ export default function App() {
                         value={shippingAddress.zipCode}
                         onChange={e => setShippingAddress({ ...shippingAddress, zipCode: e.target.value })}
                         placeholder="e.g. 94103"
-                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
+                        className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-700 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -2020,7 +2018,7 @@ export default function App() {
 
                 {/* Payment Selection */}
                 <div className="space-y-4 pt-2">
-                  <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-amber-500 border-b border-zinc-900 pb-2">Bespoke Payment Channel</h3>
+                  <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-white border-b border-zinc-900 pb-2">Bespoke Payment Channel</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     {[
                       { id: "Card", label: "Credit Card (Visa/Mastercard)", desc: "Complimentary secure ledger" },
@@ -2031,7 +2029,7 @@ export default function App() {
                         onClick={() => setPaymentMethod(pay.id)}
                         className={`border rounded-xl p-4 cursor-pointer transition-all ${
                           paymentMethod === pay.id 
-                            ? "bg-amber-500/5 border-amber-500 text-white" 
+                            ? "bg-white/5 border-white text-white" 
                             : "bg-zinc-900/40 border-zinc-800 text-zinc-400 hover:border-zinc-700"
                         }`}
                       >
@@ -2064,20 +2062,20 @@ export default function App() {
                     <span className="text-white">{formatPrice(subtotal)}</span>
                   </div>
                   {discountAmount > 0 && (
-                    <div className="flex justify-between text-amber-500 font-bold">
+                    <div className="flex justify-between text-zinc-300 font-bold">
                       <span>Discount</span>
                       <span>-{formatPrice(discountAmount)}</span>
                     </div>
                   )}
                   <div className="flex justify-between font-sans text-sm font-bold text-white pt-2 border-t border-zinc-900">
                     <span>Grand Total</span>
-                    <span className="text-amber-500 font-mono text-base">{formatPrice(totalCartAmount)}</span>
+                    <span className="text-white font-mono text-base">{formatPrice(totalCartAmount)}</span>
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors shadow-xl"
+                  className="w-full bg-white hover:bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider py-3 rounded-lg transition-colors shadow-xl"
                 >
                   Place Order
                 </button>
@@ -2090,7 +2088,7 @@ export default function App() {
         {/* VIEW: ORDER SUCCESS */}
         {currentTab === "order-success" && (
           <div className="max-w-md mx-auto py-16 text-center space-y-6">
-            <div className="mx-auto h-16 w-16 bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-full flex items-center justify-center animate-bounce">
+            <div className="mx-auto h-16 w-16 bg-white/10 text-white border border-white/20 rounded-full flex items-center justify-center animate-bounce">
               <ShieldCheck size={32} />
             </div>
 
@@ -2105,7 +2103,7 @@ export default function App() {
             <div className="bg-zinc-950 border border-zinc-900 p-5 rounded-2xl font-mono text-xs text-left space-y-3 shadow-xl">
               <div className="flex justify-between">
                 <span className="text-zinc-500 uppercase">Logistic Code</span>
-                <span className="text-amber-500 font-bold">{lastPlacedOrderId}</span>
+                <span className="text-white font-bold">{lastPlacedOrderId}</span>
               </div>
               <div className="flex justify-between border-t border-zinc-900 pt-3">
                 <span className="text-zinc-500 uppercase">Estimated Delivery</span>
@@ -2116,7 +2114,7 @@ export default function App() {
             <div className="flex flex-col gap-2 pt-4">
               <button
                 onClick={() => setCurrentTab("track-order")}
-                className="bg-white hover:bg-amber-500 hover:text-black text-black text-xs font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-colors"
+                className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-colors"
               >
                 Track Delivery
               </button>
@@ -2142,7 +2140,7 @@ export default function App() {
                 <p className="text-xs text-zinc-500 max-w-xs mx-auto mt-1 mb-6">Flag styles with the heart icon while browsing to compile your private outfit coordinate boards.</p>
                 <button
                   onClick={() => setCurrentTab("shop")}
-                  className="bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-colors"
+                  className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-colors"
                 >
                   Return to Shop
                 </button>
@@ -2154,7 +2152,7 @@ export default function App() {
                   .map((prod) => (
                     <div
                       key={prod.id}
-                      className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all flex flex-col justify-between"
+                      className="group bg-zinc-950/45 border border-zinc-900 rounded-2xl overflow-hidden hover:border-white/30 transition-all flex flex-col justify-between"
                     >
                       <div className="relative overflow-hidden aspect-square cursor-pointer" onClick={() => navigateToProduct(prod.id)}>
                         <img
@@ -2165,7 +2163,7 @@ export default function App() {
                         />
                         <button
                           onClick={(e) => { e.stopPropagation(); toggleWishlist(prod.id); }}
-                          className="absolute top-3 right-3 p-1.5 rounded-full bg-black/75 hover:bg-black text-amber-500 border border-zinc-900/60 backdrop-blur-sm transition-all"
+                          className="absolute top-3 right-3 p-1.5 rounded-full bg-black/75 hover:bg-black text-white border border-zinc-900/60 backdrop-blur-sm transition-all"
                         >
                           <X size={14} />
                         </button>
@@ -2176,16 +2174,16 @@ export default function App() {
                           <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono font-medium block mb-1">
                             {prod.category} • {prod.brand}
                           </span>
-                          <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-amber-500 transition-colors text-white leading-snug">
+                          <h4 className="text-xs font-semibold line-clamp-1 group-hover:text-zinc-200 transition-colors text-white leading-snug">
                             {prod.name}
                           </h4>
                         </div>
 
                         <div className="mt-4 flex items-center justify-between border-t border-zinc-900 pt-3">
-                          <span className="text-sm font-bold text-amber-500 font-mono">{formatPrice(prod.price)}</span>
+                          <span className="text-sm font-bold text-white font-mono">{formatPrice(prod.price)}</span>
                           <button
                             onClick={() => handleAddToCart(prod, prod.sizes[0], prod.colors[0], 1)}
-                            className="bg-zinc-900 hover:bg-amber-500 text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded transition-colors"
+                            className="bg-zinc-900 hover:bg-white text-zinc-300 hover:text-black border border-zinc-800 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded transition-colors"
                           >
                             + Add Bag
                           </button>
@@ -2203,7 +2201,7 @@ export default function App() {
           <div className="max-w-md mx-auto py-8">
             <div className="bg-zinc-950 border border-zinc-900 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 text-white">
               <div className="text-center">
-                <span className="text-amber-500 font-sans text-[10px] uppercase tracking-widest font-bold">My Account</span>
+                <span className="text-white font-sans text-[10px] uppercase tracking-widest font-bold">My Account</span>
                 <h2 className="text-2xl font-sans tracking-tight font-black mt-1">
                   {authMode === "login" ? "Login" : authMode === "signup" ? "Register" : "Reset Password"}
                 </h2>
@@ -2219,7 +2217,7 @@ export default function App() {
                       value={authName}
                       onChange={e => setAuthName(e.target.value)}
                       placeholder="e.g. Rahul Kumar"
-                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
                     />
                   </div>
                 )}
@@ -2232,7 +2230,7 @@ export default function App() {
                     value={authEmail}
                     onChange={e => setAuthEmail(e.target.value)}
                     placeholder="rahul@gmail.com"
-                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
                   />
                 </div>
 
@@ -2245,14 +2243,14 @@ export default function App() {
                       value={authPassword}
                       onChange={e => setAuthPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-amber-500/50 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-white/40 rounded-lg p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none"
                     />
                   </div>
                 )}
 
                 <button
                   type="submit"
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold py-2.5 rounded-lg uppercase tracking-widest transition-colors shadow-lg"
+                  className="w-full bg-white hover:bg-zinc-200 text-black text-xs font-semibold py-2.5 rounded-lg uppercase tracking-widest transition-colors shadow-lg"
                 >
                   {authMode === "login" ? "Sign In to Profile" : authMode === "signup" ? "Complete Registration" : "Transmit Reset Code"}
                 </button>
@@ -2262,11 +2260,11 @@ export default function App() {
               <div className="flex justify-between items-center text-[10px] font-mono text-zinc-500 pt-2 border-t border-zinc-900">
                 {authMode === "login" ? (
                   <>
-                    <button onClick={() => setAuthMode("signup")} className="hover:text-amber-500">Create Account</button>
-                    <button onClick={() => setAuthMode("forgot")} className="hover:text-amber-500">Forgot Password?</button>
+                    <button onClick={() => setAuthMode("signup")} className="hover:text-white">Create Account</button>
+                    <button onClick={() => setAuthMode("forgot")} className="hover:text-white">Forgot Password?</button>
                   </>
                 ) : (
-                  <button onClick={() => setAuthMode("login")} className="hover:text-amber-500 w-full text-center">Already have a client account? Sign In</button>
+                  <button onClick={() => setAuthMode("login")} className="hover:text-white w-full text-center">Already have a client account? Sign In</button>
                 )}
               </div>
             </div>
@@ -2284,7 +2282,7 @@ export default function App() {
               </div>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 text-xs font-sans font-bold text-zinc-400 hover:text-amber-500 border border-zinc-850 bg-zinc-950 px-3.5 py-2 rounded-lg transition-all"
+                className="flex items-center gap-1.5 text-xs font-sans font-bold text-zinc-400 hover:text-white border border-zinc-850 bg-zinc-950 px-3.5 py-2 rounded-lg transition-all"
               >
                 <LogOut size={13} /> Sign Out
               </button>
@@ -2305,7 +2303,7 @@ export default function App() {
                       <div className="flex flex-col sm:flex-row justify-between text-xs font-mono border-b border-zinc-900 pb-3 gap-2">
                         <div>
                           <span className="text-zinc-500">ORDER CODE:</span>
-                          <span className="text-amber-500 font-bold ml-1.5">{ord.id}</span>
+                          <span className="text-white font-bold ml-1.5">{ord.id}</span>
                         </div>
                         <div className="flex items-center gap-4">
                           <div>
@@ -2377,15 +2375,15 @@ export default function App() {
       {/* COMPREHENSIVE NEWSLETTER SIGNUP BANNER */}
       <section className="bg-black text-white border-t border-zinc-900 py-16 px-4">
         <div className="max-w-2xl mx-auto text-center space-y-6">
-          <span className="text-amber-500 font-sans text-[10px] uppercase tracking-widest block font-bold">Newsletter</span>
+          <span className="text-white/60 font-sans text-[10px] uppercase tracking-widest block font-bold">Newsletter</span>
           <h3 className="text-2xl sm:text-3xl font-sans tracking-tight font-black">Join Our Community</h3>
           <p className="text-xs text-zinc-400 leading-relaxed font-light">
             Subscribe to our newsletter to get updates on new clothing arrivals, exclusive sales, and a special ₹500 discount coupon code for your first buy.
           </p>
 
           {newsSuccess ? (
-            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} className="p-3 bg-zinc-900 border border-zinc-800 rounded-xl max-w-xs mx-auto text-xs text-amber-500 font-sans font-bold">
-              ★ Congratulations! You have subscribed. Use code: <span className="font-bold underline">WELCOME500</span> at checkout.
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} className="p-3 bg-zinc-900 border border-zinc-800 rounded-xl max-w-xs mx-auto text-xs text-white font-sans font-bold">
+              ★ Congratulations! You have subscribed. Use code: <span className="font-bold underline text-white">WELCOME500</span> at checkout.
             </motion.div>
           ) : (
             <form
@@ -2398,11 +2396,11 @@ export default function App() {
                 value={newsEmail}
                 onChange={e => setNewsEmail(e.target.value)}
                 placeholder="Submit your email address..."
-                className="flex-1 bg-zinc-950 border border-zinc-900 text-xs rounded-lg py-2.5 px-4 focus:outline-none focus:border-amber-500/50"
+                className="flex-1 bg-zinc-950 border border-zinc-900 text-xs rounded-lg py-2.5 px-4 focus:outline-none focus:border-white/40"
               />
               <button
                 type="submit"
-                className="bg-amber-500 hover:bg-amber-400 text-black text-xs font-semibold uppercase tracking-wider py-2.5 px-6 rounded-lg transition-colors flex-shrink-0"
+                className="bg-white hover:bg-zinc-200 text-black text-xs font-semibold uppercase tracking-wider py-2.5 px-6 rounded-lg transition-colors flex-shrink-0"
               >
                 Request Admission
               </button>
@@ -2416,7 +2414,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
           
           <div className="space-y-3">
-            <h4 className="font-sans text-xs uppercase tracking-widest text-white font-extrabold">MBA KAPDEWALA</h4>
+            <MbaLogo className="h-12 w-auto" />
             <p className="text-[11px] leading-relaxed font-light text-zinc-400">
               Bringing you the best quality clothing at the most honest and affordable prices. Swadeshi style, ultimate comfort, and beautiful clothing for everyone.
             </p>
@@ -2425,29 +2423,29 @@ export default function App() {
           <div className="space-y-2">
             <h4 className="font-sans text-[10px] uppercase tracking-wider text-zinc-400 font-bold">Our Pages</h4>
             <ul className="space-y-1.5">
-              <li><button onClick={() => setCurrentTab("about")} className="hover:text-amber-500 transition-colors text-left">About Us</button></li>
-              <li><button onClick={() => setCurrentTab("blog")} className="hover:text-amber-500 transition-colors text-left">Style Blog</button></li>
-              <li><button onClick={() => setCurrentTab("lookbook")} className="hover:text-amber-500 transition-colors text-left">Styles</button></li>
-              <li><button onClick={() => setCurrentTab("contact")} className="hover:text-amber-500 transition-colors text-left">Contact Us</button></li>
+              <li><button onClick={() => setCurrentTab("about")} className="hover:text-white transition-colors text-left">About Us</button></li>
+              <li><button onClick={() => setCurrentTab("blog")} className="hover:text-white transition-colors text-left">Style Blog</button></li>
+              <li><button onClick={() => setCurrentTab("lookbook")} className="hover:text-white transition-colors text-left">Styles</button></li>
+              <li><button onClick={() => setCurrentTab("contact")} className="hover:text-white transition-colors text-left">Contact Us</button></li>
             </ul>
           </div>
 
           <div className="space-y-2">
             <h4 className="font-sans text-[10px] uppercase tracking-wider text-zinc-400 font-bold">Customer Help</h4>
             <ul className="space-y-1.5">
-              <li><button onClick={() => setCurrentTab("faq")} className="hover:text-amber-500 transition-colors text-left">Help & FAQ</button></li>
-              <li><button onClick={() => setCurrentTab("track-order")} className="hover:text-amber-500 transition-colors text-left">Track Order</button></li>
-              <li><button onClick={() => setCurrentTab("admin")} className="hover:text-amber-500 transition-colors text-left">Admin Panel</button></li>
+              <li><button onClick={() => setCurrentTab("faq")} className="hover:text-white transition-colors text-left">Help & FAQ</button></li>
+              <li><button onClick={() => setCurrentTab("track-order")} className="hover:text-white transition-colors text-left">Track Order</button></li>
+              <li><button onClick={() => setCurrentTab("admin")} className="hover:text-white transition-colors text-left">Admin Panel</button></li>
             </ul>
           </div>
 
           <div className="space-y-2">
             <h4 className="font-sans text-[10px] uppercase tracking-wider text-zinc-400 font-bold">Policies</h4>
             <ul className="space-y-1.5">
-              <li><button onClick={() => setCurrentTab("privacy")} className="hover:text-amber-500 transition-colors text-left">Privacy Policy</button></li>
-              <li><button onClick={() => setCurrentTab("terms")} className="hover:text-amber-500 transition-colors text-left">Terms & Conditions</button></li>
-              <li><button onClick={() => setCurrentTab("return")} className="hover:text-amber-500 transition-colors text-left">Returns & Exchange</button></li>
-              <li><button onClick={() => setCurrentTab("shipping")} className="hover:text-amber-500 transition-colors text-left">Shipping Policy</button></li>
+              <li><button onClick={() => setCurrentTab("privacy")} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
+              <li><button onClick={() => setCurrentTab("terms")} className="hover:text-white transition-colors text-left">Terms & Conditions</button></li>
+              <li><button onClick={() => setCurrentTab("return")} className="hover:text-white transition-colors text-left">Returns & Exchange</button></li>
+              <li><button onClick={() => setCurrentTab("shipping")} className="hover:text-white transition-colors text-left">Shipping Policy</button></li>
             </ul>
           </div>
 

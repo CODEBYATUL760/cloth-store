@@ -67,7 +67,7 @@ const BASE_REVIEWS: Review[] = [
   { id: "r-1", userName: "Amit Sharma (Bhopal)", rating: 5, date: "2026-06-14", comment: "The clothing material is absolutely amazing. The fitting is also perfect. The quality is just as excellent as their MP Nagar showroom.", verified: true },
   { id: "r-2", userName: "Rajesh Indore", rating: 5, date: "2026-06-18", comment: "Perfect groom look. The Banarasi silk material feels premium and rich. Totally worth the money.", verified: true },
   { id: "r-3", userName: "Vikram Bundela", rating: 4, date: "2026-07-01", comment: "Very good fit. Quick delivery in Indore within 2 days. The color was slightly brighter than photo but quality is premium.", verified: true },
-  { id: "r-4", userName: "Deepak Patidar", rating: 5, date: "2026-07-10", comment: "Bought a sherwani for my wedding and everyone praised it highly. MBA Mens Wear collections are always the best.", verified: true }
+  { id: "r-4", userName: "Deepak Patidar", rating: 5, date: "2026-07-10", comment: "Bought a sherwani for my wedding and everyone praised it highly. MBA Kapdewala collections are always the best.", verified: true }
 ];
 
 // Fictional base catalog of premium Indian clothing items
@@ -330,7 +330,7 @@ const productBases = [
 ];
 
 // Curated list of traditional/modern brands for local showroom look
-const BRANDS = ["MBA Mens Wear", "Rajputana Sartorial", "Malwa Handloom", "Swadeshi Premium", "Utsav Heritage", "Indore Club Shirts"];
+const BRANDS = ["MBA Kapdewala", "Rajputana Sartorial", "Malwa Handloom", "Swadeshi Premium", "Utsav Heritage", "Indore Club Shirts"];
 
 const SIZES = ["S", "M", "L", "XL", "XXL", "3XL"];
 
@@ -463,7 +463,7 @@ export function generateProducts(): Product[] {
       features,
       fabric,
       washCare: base.washCare,
-      deliveryInfo: "Complimentary super-fast shipping across Madhya Pradesh (Bhopal, Indore, Jabalpur, Gwalior) and all over India. Delivered securely in protective eco-friendly MBA Mens Wear boxes with easy tracking within 2-4 working days.",
+      deliveryInfo: "Complimentary super-fast shipping across Madhya Pradesh (Bhopal, Indore, Jabalpur, Gwalior) and all over India. Delivered securely in protective eco-friendly MBA Kapdewala boxes with easy tracking within 2-4 working days.",
       returnPolicy: "Hassle-free 15-day return and exchange policy. Return any unused item in original state with tag. Free home pickup available from Indore & Bhopal coordinates.",
       rating,
       reviews,
@@ -495,10 +495,10 @@ export const BLOG_POSTS = [
   {
     id: "blog-1",
     title: "Trending Traditional Styles for the Bhopal Festive Season",
-    summary: "Discover the perfect fusion of classic Lucknowi craftsmanship and royal Banarasi weaves curated by MBA Mens Wear.",
+    summary: "Discover the perfect fusion of classic Lucknowi craftsmanship and royal Banarasi weaves curated by MBA Kapdewala.",
     content: `Festive celebrations in Madhya Pradesh are a grand affair, and your styling should reflect this majestic spirit. This year, we're witnessing a beautiful resurgence of traditional handloom fibers fused with modern, tailored cuts.
 
-    At MBA Mens Wear Bhopal/Indore, we've carefully curated a festive line centering Lucknowi Chikankari work on soft pastels and royal Banarasi brocade silk jackets. Here is how you can stand out:
+    At MBA Kapdewala Bhopal/Indore, we've carefully curated a festive line centering Lucknowi Chikankari work on soft pastels and royal Banarasi brocade silk jackets. Here is how you can stand out:
     
     1. Layer with a Koti: Slip a floral jacquard Nehru jacket over a solid white raw cotton kurta. It instantly adds depth and style.
     2. Embrace Pastels: Lavender, mint green, and champagne peach are dominating morning ceremonies, while royal maroon and deep indigo are reserved for the evening.

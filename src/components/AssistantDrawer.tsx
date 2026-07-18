@@ -132,7 +132,7 @@ export default function AssistantDrawer({
         const parts = para.split("**");
         formattedText = parts.map((part, idx) => {
           if (idx % 2 === 1) {
-            return <strong key={idx} className="font-semibold text-amber-500">{part}</strong>;
+            return <strong key={idx} className="font-semibold text-white">{part}</strong>;
           }
           return part;
         });
@@ -172,12 +172,12 @@ export default function AssistantDrawer({
             {/* Header */}
             <div className="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/50 backdrop-blur-md">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-full bg-amber-500/10 text-amber-500">
+                <div className="p-2 rounded-full bg-white/10 text-white">
                   <Bot size={20} className="animate-pulse" />
                 </div>
                 <div>
                   <h3 className="font-sans font-medium text-white tracking-wide text-sm flex items-center gap-1.5">
-                    Vogue AI Companion <Sparkles size={14} className="text-amber-500" />
+                    Vogue AI Companion <Sparkles size={14} className="text-white" />
                   </h3>
                   <p className="text-[10px] text-zinc-400 font-mono tracking-wider uppercase">Style & Fitting Guide</p>
                 </div>
@@ -195,11 +195,11 @@ export default function AssistantDrawer({
             {currentProduct && (
               <div className="px-4 py-2 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between gap-2 text-xs">
                 <span className="text-zinc-400 flex items-center gap-1">
-                  <Eye size={12} className="text-amber-500" /> Currently viewing:
+                  <Eye size={12} className="text-white" /> Currently viewing:
                 </span>
                 <button
                   onClick={() => onNavigateToProduct(currentProduct.id)}
-                  className="text-white hover:text-amber-500 truncate max-w-[200px] font-medium transition-colors"
+                  className="text-white hover:text-white truncate max-w-[200px] font-medium transition-colors"
                 >
                   {currentProduct.name}
                 </button>
@@ -216,12 +216,12 @@ export default function AssistantDrawer({
                   <div
                     className={`max-w-[85%] rounded-2xl p-3.5 ${
                       msg.role === "user"
-                        ? "bg-amber-500 text-black font-medium rounded-tr-none"
+                        ? "bg-white text-black font-medium rounded-tr-none"
                         : "bg-zinc-900 text-gray-200 border border-zinc-800/80 rounded-tl-none"
                     }`}
                   >
                     {msg.role === "assistant" && (
-                      <div className="flex items-center gap-1 mb-1 text-[9px] uppercase tracking-widest text-amber-500 font-mono">
+                      <div className="flex items-center gap-1 mb-1 text-[9px] uppercase tracking-widest text-white font-mono">
                         <Bot size={10} /> Style Consultant
                       </div>
                     )}
@@ -233,13 +233,13 @@ export default function AssistantDrawer({
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 rounded-tl-none max-w-[85%]">
-                    <div className="flex items-center gap-1 mb-2 text-[9px] uppercase tracking-widest text-amber-500 font-mono">
+                    <div className="flex items-center gap-1 mb-2 text-[9px] uppercase tracking-widest text-white font-mono">
                       <Bot size={10} /> Synthesizing styling advice...
                     </div>
                     <div className="flex space-x-1.5 items-center py-1">
-                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 </div>
@@ -282,13 +282,13 @@ export default function AssistantDrawer({
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask for outfit pairings, size details, or coupon eligibility..."
                   disabled={isLoading}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-full py-2.5 pl-4 pr-12 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-full py-2.5 pl-4 pr-12 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white/40 transition-colors"
                 />
                 <button
                   type="submit"
                   id="send-message-btn"
                   disabled={isLoading || !input.trim()}
-                  className="absolute right-1.5 p-1.5 rounded-full bg-amber-500 text-black disabled:bg-zinc-800 disabled:text-zinc-600 transition-all"
+                  className="absolute right-1.5 p-1.5 rounded-full bg-white text-black disabled:bg-zinc-800 disabled:text-zinc-600 transition-all"
                 >
                   <Send size={14} />
                 </button>
