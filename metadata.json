@@ -1,6 +1,6 @@
 {
   "name": "MBA Kapdewala",
-  "description": "A high-quality, friendly, and affordable local Indian clothing store for everyday fashion.",
+  "description": "Premium boutique Indian traditional fashion and clothing store, featuring high-quality handloomed sarees, kurtas, Nehru jackets, frocks, and accessories with smart filtration, real-time stock levels, size guidelines, compare matrix, and checkout workflows.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,139 +1,114 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import React from 'react';
 
-export interface MbaLogoProps {
+interface MbaLogoProps {
   className?: string;
-  height?: number | string;
-  width?: number | string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export const MbaLogo: React.FC<MbaLogoProps> = ({
-  className = "",
-  height,
-  width,
-}) => {
+export default function MbaLogo({ className = '', size = 'md' }: MbaLogoProps) {
+  const sizeMap = {
+    sm: 'w-10 h-10',
+    md: 'w-12 h-12 md:w-14 md:h-14',
+    lg: 'w-16 h-16 md:w-20 md:h-20',
+    xl: 'w-24 h-24 md:w-28 md:h-28',
+  };
+
+  const dimensions = sizeMap[size];
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 500 500"
-      width={width}
-      height={height}
-      className={className}
-    >
-      <defs>
-        <style>
-          {`@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap');`}
-        </style>
-        {/* Beautiful golden gradient for the outer circle border */}
-        <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFF275" />
-          <stop offset="30%" stopColor="#F4D03F" />
-          <stop offset="50%" stopColor="#F9E79F" />
-          <stop offset="75%" stopColor="#D35400" />
-          <stop offset="100%" stopColor="#F4D03F" />
-        </linearGradient>
-        
-        {/* Drop shadow filter to match the premium, real-life feel of a metallic badge */}
-        <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="6" stdDeviation="5" floodOpacity="0.4" />
-        </filter>
-      </defs>
-
-      {/* Solid Black Circular Emblem with Drop Shadow */}
-      <circle
-        cx="250"
-        cy="250"
-        r="220"
-        fill="#090909"
-        stroke="url(#logoGoldGrad)"
-        strokeWidth="11"
-        filter="url(#logoShadow)"
-      />
-      
-      {/* Internal Delicate Inner Ring */}
-      <circle
-        cx="250"
-        cy="250"
-        r="205"
-        fill="none"
-        stroke="url(#logoGoldGrad)"
-        strokeWidth="2"
-        opacity="0.85"
-      />
-
-      {/* Top Bold "MBA" text - slanted/oblique */}
-      <text
-        x="250"
-        y="158"
-        textAnchor="middle"
-        fontFamily="system-ui, -apple-system, sans-serif"
-        fontWeight="900"
-        fontSize="86"
-        fontStyle="oblique"
-        letterSpacing="-1"
+    <div className={`flex items-center justify-center select-none ${dimensions} ${className}`} id="mba-kapdewala-badge-logo">
+      <svg
+        viewBox="0 0 100 100"
+        className="w-full h-full drop-shadow-md"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <tspan fill="#E52320">M</tspan>
-        <tspan fill="#FFD700">B</tspan>
-        <tspan fill="#00A859">A</tspan>
-      </text>
-
-      {/* The Three Overlapping Silhouetted T-Shirts with clean borders */}
-      <g>
-        {/* Left RED Shirt (Rotated slightly outward left) */}
-        <path
-          d="M 235 185 Q 250 195 265 185 L 218 193 L 208 228 L 223 233 L 226 218 L 228 265 L 272 265 L 274 218 L 277 233 L 292 228 L 282 193 Z"
-          fill="#E52320"
-          stroke="#000000"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-          transform="translate(-48, 12) rotate(-8, 250, 225)"
-        />
+        {/* Outer Circle borders */}
+        <circle cx="50" cy="50" r="48" fill="#000000" stroke="#FFFFFF" strokeWidth="1.5" />
+        <circle cx="50" cy="50" r="45" fill="#141414" stroke="#8E8E93" strokeWidth="1" />
         
-        {/* Right GREEN Shirt (Rotated slightly outward right) */}
-        <path
-          d="M 235 185 Q 250 195 265 185 L 218 193 L 208 228 L 223 233 L 226 218 L 228 265 L 272 265 L 274 218 L 277 233 L 292 228 L 282 193 Z"
-          fill="#00A859"
-          stroke="#000000"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-          transform="translate(48, 12) rotate(8, 250, 225)"
-        />
-        
-        {/* Middle BLUE Shirt (Stands prominent in the center) */}
-        <path
-          d="M 235 185 Q 250 195 265 185 L 218 193 L 208 228 L 223 233 L 226 218 L 228 265 L 272 265 L 274 218 L 277 233 L 292 228 L 282 193 Z"
-          fill="#1A3FB5"
-          stroke="#FFFFFF"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-          transform="translate(0, 5)"
-        />
-      </g>
+        {/* MBA Text: Slanted, extra bold */}
+        <text
+          x="50"
+          y="39"
+          textAnchor="middle"
+          fontWeight="900"
+          fontSize="17"
+          fontStyle="italic"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="0.2"
+        >
+          <tspan fill="#EF4444">M</tspan>
+          <tspan fill="#EAB308">B</tspan>
+          <tspan fill="#10B981">A</tspan>
+        </text>
 
-      {/* Devanagari "कपड़े वाला" Text in Bold Yellow */}
-      <text
-        x="250"
-        y="346"
-        textAnchor="middle"
-        fill="#FFDD00"
-        fontFamily="'Mukta', 'Hind', 'Noto Sans Devanagari', sans-serif"
-        fontWeight="800"
-        fontSize="64"
-        letterSpacing="0.5"
-      >
-        कपड़े वाला
-      </text>
+        {/* Group for the overlapping shirts */}
+        <g id="overlapping-shirts" transform="translate(0, 1)">
+          {/* 1. Left Shirt (Red) - rendered first */}
+          <g transform="translate(41, 51) scale(0.65)">
+            <path
+              d="M -5,-6 L -9,-6 L -11,-1 L -8,0 L -8,8 L 8,8 L 8,0 L 11,-1 L 9,-6 L 5,-6 C 3,-4.5 -3,-4.5 -5,-6 Z"
+              fill="#EF4444"
+              stroke="#000000"
+              strokeWidth="0.75"
+              strokeLinejoin="round"
+            />
+          </g>
 
-      {/* Trademark Registered Symbol ® */}
-      <text
-        x="400"
-        y="312"
-        fill="#FFFFFF"
-        fontFamily="sans-serif"
-        fontWeight="bold"
-        fontSize="24"
-      >
-        ®
-      </text>
-    </svg>
+          {/* 2. Right Shirt (Green) - rendered second */}
+          <g transform="translate(59, 51) scale(0.65)">
+            <path
+              d="M -5,-6 L -9,-6 L -11,-1 L -8,0 L -8,8 L 8,8 L 8,0 L 11,-1 L 9,-6 L 5,-6 C 3,-4.5 -3,-4.5 -5,-6 Z"
+              fill="#10B981"
+              stroke="#000000"
+              strokeWidth="0.75"
+              strokeLinejoin="round"
+            />
+          </g>
+
+          {/* 3. Middle Shirt (Blue) - rendered last to overlap both */}
+          <g transform="translate(50, 50.5) scale(0.72)">
+            <path
+              d="M -5,-6 L -9,-6 L -11,-1 L -8,0 L -8,8 L 8,8 L 8,0 L 11,-1 L 9,-6 L 5,-6 C 3,-4.5 -3,-4.5 -5,-6 Z"
+              fill="#2563EB"
+              stroke="#FFFFFF"
+              strokeWidth="0.8"
+              strokeLinejoin="round"
+            />
+          </g>
+        </g>
+
+        {/* "कपड़े वाला" in Yellow */}
+        <text
+          x="47"
+          y="69"
+          textAnchor="middle"
+          fill="#FACC15"
+          fontWeight="bold"
+          fontSize="11"
+          fontFamily="'Inter', 'Noto Sans Devanagari', sans-serif"
+          letterSpacing="0.2"
+        >
+          कपड़े वाला
+        </text>
+
+        {/* Trademark symbol ® */}
+        <text
+          x="75"
+          y="65"
+          fill="#FFFFFF"
+          fontWeight="medium"
+          fontSize="5"
+          fontFamily="sans-serif"
+        >
+          ®
+        </text>
+      </svg>
+    </div>
   );
-};
+}
